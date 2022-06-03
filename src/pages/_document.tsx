@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-sync-scripts */
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable require-jsdoc */
 import * as D from 'next/document';

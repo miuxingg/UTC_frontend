@@ -27,14 +27,14 @@ const Layout: React.FC<any> = ({ children }) => {
         // console.log({ items: itemsCart, total: dataBook.total });
       }
     }
-  }, [dispatch]);
+  }, [bookOnCartLocal, dispatch]);
   useEffect(() => {
     if (isAuthenticated) {
       dispatch(getAllCart({ limit: 20 }));
     } else {
       getBookOnCart();
     }
-  }, [dispatch, bookOnCartLocal, isAuthenticated]);
+  }, [dispatch, bookOnCartLocal, isAuthenticated, getBookOnCart]);
   return (
     <div>
       <Header bookCartLocal={bookOnCartLocal} />
