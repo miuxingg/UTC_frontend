@@ -132,6 +132,7 @@
   "notify.checkout.empty-product": "Không có sản phẩm nào để thanh toán",
   "notify.checkout.product-not-enough": "Số lượng sản phẩm không đủ",
   "notify.checkout.payment-amount-small": "Số tiền thanh toán quá nhỏ để thực hiện bằng phương thức thanh toán này",
+  "notify.add-to-cart.checkout.success": "Thanh toán thành công",
   "submit.update": "Cập nhật",
   "change-password": "Đổi mật khẩu",
   "change-password.current": "Mật khẩu hiện tại",
@@ -146,5 +147,9 @@
   "voucher.expire": "Có giá trị ",
   "voucher.expire-from": "từ ",
   "voucher.expire-to": "đến ",
-  "voucher.submit": "Áp dụng"
+  "voucher.submit": "Áp dụng",
+  "contact.subject": "Chủ đề",
+  "contact.message": "Nhập văn bản...",
+  "contact.send-mail": "Gửi tin nhắn",
+  "contact.get-in-touch": "Liên hệ"
 }

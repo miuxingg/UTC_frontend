@@ -27,3 +27,9 @@ export enum COOKIE_KEYS {
   ACCESS_TOKEN = '_bookstore_access_token',
   REFRESH_TOKEN = '_bookstore_refresh_token',
 }
+
+export const BookStoreInfomation = {
+  address: 'Số 3 phố Cầu Giấy, P.Láng Thượng, Q.Đống Đa, Hà Nội',
+  phone: '(84.24) 37663311',
+  email: 'bookstore.project.utc@gmail.com',
+};

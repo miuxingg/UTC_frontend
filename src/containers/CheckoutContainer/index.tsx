@@ -118,6 +118,14 @@ const CheckoutContainer: React.FC = () => {
     email: profile?.email || '',
   };
 
+  useEffect(() => {
+    setAddress({
+      provice: profile?.province?.code || 1,
+      district: profile?.district?.code || 1,
+      ward: profile?.ward?.code || 1,
+    });
+  }, [profile]);
+
   const handleChooseVoucher = (value: IVoucherApi) => {
     setVoucherSelected(value);
   };
@@ -524,7 +532,7 @@ const CheckoutContainer: React.FC = () => {
                         <ul className="order_product">
                           {cartItem.items.map((item) => {
                             return (
-                              <li>
+                              <li key={item?.id}>
                                 {`${item.item.name} × ${item.quantity}`}
                                 <span>
                                   {moneyFormat(item.quantity * item.item.price)}

@@ -131,6 +131,7 @@
   "notify.checkout.empty-product": "Cart empty",
   "notify.checkout.product-not-enough": "Product quantity is not enough",
   "notify.checkout.payment-amount-small": "The payment amount is too small to make using this payment method",
+  "notify.add-to-cart.checkout.success": "Checkout Success",
   "submit.update": "Submit",
   "change-password": "Change password",
   "change-password.current": "Current password",
@@ -145,5 +146,10 @@
   "voucher.expire": "Valid ",
   "voucher.expire-from": "from ",
   "voucher.expire-to": "to ",
-  "voucher.submit": "Submit"
+  "voucher.submit": "Submit",
+  "contact.subject": "Subject",
+  "contact.message": "Type your message here...",
+  "contact.send-mail": "Send Email",
+  "contact.get-in-touch": "Get In Touch",
+  "contact.get-in-touch-details": ""
 }

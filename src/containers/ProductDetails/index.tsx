@@ -10,24 +10,15 @@ import {
 } from '../../libs/utils/localStorage';
 import { setError, setSuccess } from '../../redux/app';
 import { authSelector } from '../../redux/auth/selectors';
-import {
-  allCloudtag,
-  bookDetailSelector,
-  newBook,
-} from '../../redux/book/selectors';
+import { bookDetailSelector } from '../../redux/book/selectors';
 import { addItemToCart, createCartItem } from '../../redux/cart';
-import {
-  allCategories,
-  currentCategories,
-} from '../../redux/categories/selectors';
 import { createReviewOnBook, getMoreReviewOnBook } from '../../redux/review';
 import { allReviewOnBook } from '../../redux/review/selectors';
-import SliderRange from '../ProductsContainer/SliderRange';
 import ImageSlide from './ImageSlide';
 import Review from './Reviews';
 import dayjs from 'dayjs';
 import { moneyFormat } from '../../libs/utils';
-import BookInCombo, { ListBookInCombo } from './Combo';
+import { ListBookInCombo } from './Combo';
 import { useTranslation } from 'react-i18next';
 import { toggleFavorite } from '../../redux/favorite';
 
@@ -42,7 +33,6 @@ const ProductDetailContainer: React.FC = () => {
   const isAuthenticated = useSelector(authSelector);
   const [quantity, setQuantity] = useState<number>(1);
   const bookDetail = useSelector(bookDetailSelector);
-  // const newBookSelector = useSelector(newBook);;
   const reviews = useSelector(allReviewOnBook);
 
   const [rating, setRating] = useState<number>(5);
@@ -108,8 +98,6 @@ const ProductDetailContainer: React.FC = () => {
     }
   };
 
-  const handleSlideRange = (startPrice: number, endPrice: number) => {};
-
   const handleRatingChange = (
     event: React.SyntheticEvent<Element, Event>,
     value: number | null,
@@ -152,27 +140,13 @@ const ProductDetailContainer: React.FC = () => {
 
   return (
     <div className="wrapper" id="wrapper">
-      {/* Start Bradcaump area */}
       <div className="ht__bradcaump__area bg-image--4">
         <div className="container">
           <div className="row">
-            <div className="col-lg-12">
-              {/* <div className="bradcaump__inner text-center">
-                <h2 className="bradcaump-title">Shop Single</h2>
-                <nav className="bradcaump-content">
-                  <a className="breadcrumb_item" href="index.html">
-                    Home
-                  </a>
-                  <span className="brd-separetor">/</span>
-                  <span className="breadcrumb_item active">Shop Single</span>
-                </nav>
-              </div> */}
-            </div>
+            <div className="col-lg-12"></div>
           </div>
         </div>
       </div>
-      {/* End Bradcaump area */}
-      {/* Start main Content */}
       <div className="maincontent bg--white pt--80 pb--55">
         <div className="container">
           <div className="row">
@@ -242,10 +216,6 @@ const ProductDetailContainer: React.FC = () => {
                                 bookDetail.isFavorite || favoriteHover
                                   ? '#e59285'
                                   : '#fff',
-                              // color:
-                              //   bookDetail.isFavorite || favoriteHover
-                              //     ? '#fff'
-                              //     : '#333',
                               borderColor:
                                 bookDetail.isFavorite || favoriteHover
                                   ? '#e59285'
@@ -348,7 +318,6 @@ const ProductDetailContainer: React.FC = () => {
                   </a>
                 </div>
                 <div className="tab__container">
-                  {/* Start Single Tab Content */}
                   <div
                     className="pro__tab_label tab-pane fade show active"
                     id="nav-details"
@@ -356,39 +325,24 @@ const ProductDetailContainer: React.FC = () => {
                   >
                     <div className="description__attribute">
                       <p>{bookDetail.description}</p>
-                      {/* <ul>
-                        <li>• Two-tone gray heather hoodie.</li>
-                        <li>• Drawstring-adjustable hood. </li>
-                        <li>• Machine wash/dry.</li>
-                      </ul> */}
                     </div>
                   </div>
-                  {/* End Single Tab Content */}
-                  {/* Start Single Tab Content */}
                   <div
                     className="pro__tab_label tab-pane fade"
                     id="nav-summary"
                     role="tabpanel"
                   >
                     <div className="description__attribute">
-                      <p>
-                        <pre>
-                          <div
-                            dangerouslySetInnerHTML={{
-                              __html: bookDetail?.summary || '',
-                            }}
-                          />
-                        </pre>
-                      </p>
-                      {/* <ul>
-                        <li>• Two-tone gray heather hoodie.</li>
-                        <li>• Drawstring-adjustable hood. </li>
-                        <li>• Machine wash/dry.</li>
-                      </ul> */}
+                      <pre>
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: bookDetail?.summary || '',
+                          }}
+                        />
+                      </pre>
                     </div>
                   </div>
-                  {/* End Single Tab Content */}
-                  {/* Start Single Tab Content */}
+
                   <div
                     className="pro__tab_label tab-pane fade"
                     id="nav-review"
@@ -458,65 +412,9 @@ const ProductDetailContainer: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                  {/* End Single Tab Content */}
                 </div>
               </div>
-              {/* <div className="wn__related__product pt--40 pb--30">
-                <Box width="700px">
-                  <BooksSection
-                    listItem={transformBookCart(newBookSelector.items)}
-                    title="RELATED PRODUCTS"
-                  />
-                </Box>
-              </div>
-              <div className="wn__related__product">
-                <Box width="700px">
-                  <BooksSection
-                    listItem={transformBookCart(newBookSelector.items)}
-                    title="UPSELL PRODUCTS"
-                  />
-                </Box>
-              </div> */}
             </div>
-            {/* <div className="col-lg-3 col-12 md-mt-40 sm-mt-40">
-              <div className="shop__sidebar">
-                <aside className="wedget__categories poroduct--cat">
-                  <h3 className="wedget__title">Product Categories</h3>
-                  <ul>
-                    {listCategories.items.map((item) => {
-                      return (
-                        <li key={item.id}>
-                          <a>
-                            {item.name} <span></span>
-                          </a>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </aside>
-                <aside className="wedget__categories pro--range">
-                  <h3 className="wedget__title">Filter by price</h3>
-                  <div className="content-shopby">
-                    <div className="price_filter s-filter clear">
-                      <SliderRange onFilter={handleSlideRange} />
-                    </div>
-                  </div>
-                </aside>
-
-                <aside className="wedget__categories poroduct--tag">
-                  <h3 className="wedget__title">Product Tags</h3>
-                  <ul>
-                    {cloudtag.items.map((item, index) => {
-                      return (
-                        <li key={index}>
-                          <a>{item}</a>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </aside>
-              </div>
-            </div> */}
           </div>
         </div>
       </div>

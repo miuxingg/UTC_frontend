@@ -1,0 +1,153 @@
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { BookStoreInfomation } from '../../configs';
+import GoogleMap from './GoogleMap';
+
+const key = 'AIzaSyD9rLRWMcSrWloMWSVYRW9uiooequJQWSk';
+
+const ContactContainer: React.FC = () => {
+  const { t } = useTranslation();
+  return (
+    <div>
+      <div className="ht__bradcaump__area bg-image--6">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              {/* <div className="bradcaump__inner text-center">
+                <h2 className="bradcaump-title">Contact Us</h2>
+                <nav className="bradcaump-content">
+                  <a className="breadcrumb_item" href="index.html">
+                    Home
+                  </a>
+                  <span className="brd-separetor">/</span>
+                  <span className="breadcrumb_item active">Contact Us</span>
+                </nav>
+              </div> */}
+            </div>
+          </div>
+        </div>
+      </div>
+      <section className="wn_contact_area bg--white pt--80 pb--80">
+        <div className="google__map pb--80">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-12">
+                {/* <div id="googleMap" /> */}
+                {/* <GoogleMap
+                  googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${key}&callback=initMap`}
+                  loadingElement={<div style={{ height: `100%` }} />}
+                  containerElement={
+                    <div
+                      style={{
+                        height: `90vh`,
+                        margin: `auto`,
+                        border: '2px solid black',
+                      }}
+                    />
+                  }
+                  mapElement={<div style={{ height: `100%` }} />}
+                /> */}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-8 col-12">
+              <div className="contact-form-wrap">
+                <h2 className="contact__title">{t('contact.get-in-touch')}</h2>
+
+                <form id="contact-form" action="#" method="post">
+                  <div className="single-contact-form space-between">
+                    <input
+                      type="text"
+                      name="firstname"
+                      placeholder={t('check-out.shipping.first-name')}
+                    />
+                    <input
+                      type="text"
+                      name="lastname"
+                      placeholder={t('check-out.shipping.last-name')}
+                    />
+                  </div>
+                  <div className="single-contact-form space-between">
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder={t('check-out.shipping.emails')}
+                    />
+                    {/* <input type="text" name="website" placeholder="Website*" /> */}
+                  </div>
+                  <div className="single-contact-form">
+                    <input
+                      type="text"
+                      name="subject"
+                      placeholder={t('contact.subject')}
+                    />
+                  </div>
+                  <div className="single-contact-form message">
+                    <textarea
+                      name="message"
+                      placeholder={t('contact.message')}
+                      defaultValue={''}
+                    />
+                  </div>
+                  <div className="contact-btn">
+                    <button type="submit">{t('contact.send-mail')}</button>
+                  </div>
+                </form>
+              </div>
+              <div className="form-output">
+                <p className="form-messege"></p>
+              </div>
+            </div>
+            <div className="col-lg-4 col-12 md-mt-40 sm-mt-40">
+              <div className="wn__address">
+                {/* <h2 className="contact__title">Get office info.</h2>
+                <p>
+                  Claritas est etiam processus dynamicus, qui sequitur
+                  mutationem consuetudium lectorum. Mirum est notare quam
+                  littera gothica, quam nunc putamus parum claram, anteposuerit
+                  litterarum formas humanitatis per seacula quarta decima et
+                  quinta decima.{' '}
+                </p> */}
+                <div className="wn__addres__wreapper">
+                  <div className="single__address">
+                    <i className="icon-location-pin icons" />
+                    <div className="content">
+                      <span>{t('checkout-history.table.address')}:</span>
+                      <p>{BookStoreInfomation.address}</p>
+                    </div>
+                  </div>
+                  <div className="single__address">
+                    <i className="icon-phone icons" />
+                    <div className="content">
+                      <span>{t('check-out.shipping.phone')}:</span>
+                      <p>{BookStoreInfomation.phone}</p>
+                    </div>
+                  </div>
+                  <div className="single__address">
+                    <i className="icon-envelope icons" />
+                    <div className="content">
+                      <span>{t('check-out.shipping.emails')}:</span>
+                      <p>{BookStoreInfomation.email}</p>
+                    </div>
+                  </div>
+                  {/* <div className="single__address">
+                    <i className="icon-globe icons" />
+                    <div className="content">
+                      <span>website address:</span>
+                      <p>716-298-1822</p>
+                    </div>
+                  </div> */}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default ContactContainer;

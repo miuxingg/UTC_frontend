@@ -1,7 +1,9 @@
+import dayjs from 'dayjs';
 import React from 'react';
+import { Col, Row } from 'reactstrap';
 import { IBlogApi } from '../../../libs/apis/blog/types';
+import Blog from '../../collecttions/Blog';
 import BlogCard from './BlogCard';
-
 interface IOurBlog {
   blogList: IBlogApi[];
 }
@@ -24,9 +26,24 @@ export const OurBlog: React.FC<IOurBlog> = ({ blogList }) => {
           </div>
         </div>
         <div className="row mt--50">
-          {blogList.map((item) => {
-            return <BlogCard key={item.id} {...item} />;
-          })}
+          <Row style={{ justifyContent: 'center' }}>
+            {blogList.map((blg) => (
+              <Col
+                sm="6"
+                lg="6"
+                xl="3"
+                key={blg.id}
+                style={{ height: '400px', overflow: 'hidden' }}
+              >
+                <Blog
+                  image={blg.image}
+                  title={blg.title}
+                  subtitle={dayjs(blg.createdAt).format('DD/MM/YYYY')}
+                  text={blg.content}
+                />
+              </Col>
+            ))}
+          </Row>
         </div>
       </div>
     </section>
