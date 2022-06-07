@@ -153,13 +153,13 @@ const Header: React.FC<IHeader> = ({ bookCartLocal }) => {
                       <a>{t('header.checkout')}</a>
                     </Link>
                   </li>
-                  <li className="drop">
+                  {/* <li className="drop">
                     <Link href={Routers.products.path}>
                       <a>{t('header.blog')}</a>
                     </Link>
-                  </li>
+                  </li> */}
                   <li>
-                    <Link href={Routers.products.path}>
+                    <Link href={Routers.contact.path}>
                       <a>{t('header.contact')}</a>
                     </Link>
                   </li>

@@ -26,10 +26,20 @@ export const getWardsThunk = createAsyncThunk(
   },
 );
 
-export const categorySlice = createGenericSlice({
+export const addressSlice = createGenericSlice({
   name: 'address',
   initialState,
-  reducers: {},
+  reducers: {
+    getAllProvinces(state, action) {
+      state.provinces = action.payload;
+    },
+    getAllDistricts(state, action) {
+      state.districts = action.payload;
+    },
+    getAllWards(state, action) {
+      state.wards = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(getProvices.fulfilled, (state, action) => {
       state.provinces = action.payload;
@@ -45,6 +55,7 @@ export const categorySlice = createGenericSlice({
   },
 });
 
-// export const {} = bookSlice.actions;
+export const { getAllProvinces, getAllDistricts, getAllWards } =
+  addressSlice.actions;
 
-export default categorySlice.reducer;
+export default addressSlice.reducer;

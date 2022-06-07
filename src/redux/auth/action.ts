@@ -38,7 +38,7 @@ export const registerLocal = createAsyncThunk(
 export const logout = createAsyncThunk('auth/logout', async () => {
   // await apiSdk.authApis.logout();
   removeToken();
-  // window?.location?.replace('/');
+  window?.location?.replace('/');
 });
 
 export const authorized = createAsyncThunk('auth/authorized', () => {
