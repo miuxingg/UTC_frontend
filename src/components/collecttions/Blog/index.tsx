@@ -1,13 +1,4 @@
-import {
-  Card,
-  CardBody,
-  CardImg,
-  CardSubtitle,
-  CardText,
-  CardTitle,
-  Button,
-} from 'reactstrap';
-import Image from 'next/image';
+import { Card, CardBody, CardSubtitle, CardText, CardTitle } from 'reactstrap';
 
 interface IBlog {
   title: string;

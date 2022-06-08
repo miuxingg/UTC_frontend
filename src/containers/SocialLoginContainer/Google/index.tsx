@@ -20,6 +20,7 @@ const GoogleLoginForm: React.FC<IGoogleLoginForm> = ({ clientId }) => {
       onSuccess={responseGoogle}
       onFailure={rejectGoogle}
       cookiePolicy={'single_host_origin'}
+      isSignedIn={true}
     />
   );
 };

@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-css-tags */
+/* eslint-disable @next/next/google-font-display */
 /* eslint-disable @next/next/no-sync-scripts */
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable require-jsdoc */
@@ -19,7 +21,7 @@ class MyDocument extends Document {
           <div>
             <meta charSet="utf-8" />
             <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-            <title>Home | Bookshop Responsive Bootstrap4 Template</title>
+            <title>BookStore</title>
             <meta name="description" />
             <meta
               name="viewport"

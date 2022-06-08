@@ -1,4 +1,6 @@
+import Head from 'next/head';
 import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import Layout from '../../components/templates/Layout';
 import ProfileContainer from '../../containers/ProfileContainer';
@@ -12,6 +14,7 @@ import {
 import { setProfile } from '../../redux/auth';
 
 const Profile: React.FC = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProvices());
@@ -19,9 +22,14 @@ const Profile: React.FC = () => {
     dispatch(getWardsThunk(1));
   }, [dispatch]);
   return (
-    <Layout>
-      <ProfileContainer />
-    </Layout>
+    <>
+      <Head>
+        <title>{t('header.profile.profile')}</title>
+      </Head>
+      <Layout>
+        <ProfileContainer />
+      </Layout>
+    </>
   );
 };
 

@@ -14,9 +14,12 @@ import { getServerSideWithPublicRoute } from '../libs/hocs/getServerSideWithPubl
 import { BookStatus } from '../libs/utils/buildQueries';
 import { apiSdk } from '../libs/apis';
 import { getAllBlog } from '../redux/blog';
+import Head from 'next/head';
+import { useTranslation } from 'react-i18next';
 
 const Home: NextPage = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   useEffect(() => {
     dispatch(getNewsBook({ limit: 20, status: BookStatus.NEW }));
@@ -26,6 +29,9 @@ const Home: NextPage = () => {
   }, [dispatch]);
   return (
     <>
+      <Head>
+        <title>{t('header.home')}</title>
+      </Head>
       <Layout>
         <HomePageContainer />
       </Layout>

@@ -1,6 +1,8 @@
 import { NextPage } from 'next';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import Layout from '../../../components/templates/Layout';
 import { REVIEW_COUNT } from '../../../configs';
@@ -13,6 +15,7 @@ import { getAllReviewOnBook } from '../../../redux/review';
 const ProductDetail: NextPage = () => {
   const router = useRouter();
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const { id } = router.query;
   useEffect(() => {
     if (id) {
@@ -27,9 +30,11 @@ const ProductDetail: NextPage = () => {
       );
     }
   }, [dispatch, id]);
-
   return (
     <>
+      <Head>
+        <title>{t('header.cart.item')}</title>
+      </Head>
       <Layout>
         <ProductDetailContainer />
       </Layout>
