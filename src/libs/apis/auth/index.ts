@@ -56,6 +56,8 @@ export class AuthApi {
 
   async loginGoogle(): Promise<IAuthenticated> {
     const { data } = await this.axiosInstance.get('/auth/login-google/');
+    console.log(data);
+
     return data;
   }
 }

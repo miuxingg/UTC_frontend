@@ -1,4 +1,6 @@
+import Head from 'next/head';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Layout from '../../components/templates/Layout';
 import CheckoutContainer from '../../containers/CheckoutContainer';
 import StripeContainerWrapper from '../../containers/StripeContainer';
@@ -13,12 +15,18 @@ import { setProfile } from '../../redux/auth';
 import { getvoucher } from '../../redux/voucher';
 
 const CheckOutPage: React.FC = () => {
+  const { t } = useTranslation();
   return (
-    <Layout>
-      <StripeContainerWrapper>
-        <CheckoutContainer />
-      </StripeContainerWrapper>
-    </Layout>
+    <>
+      <Head>
+        <title>{t('header.checkout')}</title>
+      </Head>
+      <Layout>
+        <StripeContainerWrapper>
+          <CheckoutContainer />
+        </StripeContainerWrapper>
+      </Layout>
+    </>
   );
 };
 

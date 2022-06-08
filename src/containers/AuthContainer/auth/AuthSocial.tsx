@@ -7,18 +7,18 @@ import GoogleLoginForm from '../../SocialLoginContainer/Google';
 import Iconify from './Iconify';
 
 const clientId =
-  '93718062531-2dfmntl4qurferrev6tckg47d5aikc1n.apps.googleusercontent.com';
+  '200970573554-v8qm3tftfsikng4l2umi1gdcb2jv2bl0.apps.googleusercontent.com';
 // ----------------------------------------------------------------------
 export const AuthSocial: React.FC = () => {
   const dispatch = useDispatch();
   const handleLoginGoogle = () => {
-    // dispatch(loginGoogle());
+    dispatch(loginGoogle());
   };
   return (
     <>
-      <GoogleLoginForm clientId={clientId} />
+      {/* <GoogleLoginForm clientId={clientId} /> */}
       <Stack direction="row" spacing={2}>
-        {/* <Button
+        <Button
           fullWidth
           size="large"
           color="inherit"
@@ -31,7 +31,7 @@ export const AuthSocial: React.FC = () => {
             width={22}
             height={22}
           />
-        </Button> */}
+        </Button>
 
         <Button fullWidth size="large" color="inherit" variant="outlined">
           <Iconify

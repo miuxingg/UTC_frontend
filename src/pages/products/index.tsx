@@ -1,6 +1,8 @@
 import { NextPage } from 'next';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import Layout from '../../components/templates/Layout';
 import { ITEM_PER_PAGE } from '../../configs';
@@ -15,6 +17,7 @@ export const ProductPage: NextPage = () => {
   const router = useRouter();
   const { search } = router.query;
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const queries: BookQueries = { limit: ITEM_PER_PAGE };
@@ -25,11 +28,16 @@ export const ProductPage: NextPage = () => {
     dispatch(getAllPublishers());
     dispatch(allBooksByFilter({ ...queries }));
     dispatch(cloudtag());
-  }, [dispatch]);
+  }, [dispatch, search]);
   return (
-    <Layout>
-      <ProductsContainer />
-    </Layout>
+    <>
+      <Head>
+        <title>{t('header.shop')}</title>
+      </Head>
+      <Layout>
+        <ProductsContainer />
+      </Layout>
+    </>
   );
 };
 
