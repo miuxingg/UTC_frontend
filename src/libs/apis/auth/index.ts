@@ -2,6 +2,7 @@ import { AxiosInstance } from 'axios';
 import {
   IAuthenticated,
   IAuthLocal,
+  IFacebookLogin,
   IProfile,
   IVerifyEmail,
   ResponseDto,
@@ -56,6 +57,16 @@ export class AuthApi {
 
   async loginGoogle(): Promise<IAuthenticated> {
     const { data } = await this.axiosInstance.get('/auth/login-google/');
+    console.log(data);
+
+    return data;
+  }
+
+  async loginFacebook(input: IFacebookLogin): Promise<IAuthenticated> {
+    const { data } = await this.axiosInstance.post(
+      '/auth/facebook-login/',
+      input,
+    );
     console.log(data);
 
     return data;

@@ -150,13 +150,13 @@ export const BookCart: React.FC<IBook> = ({
           <div className="action">
             <div className="actions_inner">
               <ul className="add_to_links">
-                <li>
+                {/* <li>
                   <Link href="/">
                     <a className="cart" title="chua biet">
                       <i className="bi bi-shopping-bag4" />
                     </a>
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <div onClick={handleAddToCart}>
                     <a className="wishlist" title="Add To Cart">
@@ -184,7 +184,7 @@ export const BookCart: React.FC<IBook> = ({
                   {/* </Link> */}
                 </li>
                 <li>
-                  <Link href="/">
+                  <Link href={`${Routers.products.path}/${id}`}>
                     <a
                       data-toggle="modal"
                       title="Quick View"
