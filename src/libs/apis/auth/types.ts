@@ -36,3 +36,9 @@ export interface IAuthenticated {
 export interface IVerifyEmail {
   code: string;
 }
+
+export interface IFacebookLogin {
+  email: string;
+  name: string;
+  avatar: string;
+}

@@ -7930,6 +7930,13 @@ a.checkout__title {
   left: 30px;
   right: 30px;
 }
+
+.facebook-wapper {
+  width: 120px;
+  height: 65px;
+  background-color: #fff;
+}
+
 @media only screen and (min-width: 1601px) and (max-width: 1919px) {
   .wrapper-boxed-layout {
     margin: 0 70px;

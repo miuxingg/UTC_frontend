@@ -1,7 +1,12 @@
 import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { apiSdk } from '../../libs/apis';
-import { IAuthLocal, IProfile, IVerifyEmail } from '../../libs/apis/auth/types';
+import {
+  IAuthLocal,
+  IFacebookLogin,
+  IProfile,
+  IVerifyEmail,
+} from '../../libs/apis/auth/types';
 import { removeToken, setToken } from '../../libs/utils/token';
 import { setError, setSuccess } from '../app';
 // import { setError, setSuccess } from '../app';
@@ -101,6 +106,21 @@ export const loginGoogle = createAsyncThunk(
   async ({}, { dispatch }) => {
     try {
       const token = await apiSdk.authApis.loginGoogle();
+      setToken(token);
+      dispatch(authorized());
+      dispatch(setSuccess({ message: 'Login Success' }));
+      window?.location.replace('/');
+    } catch (err: any) {
+      return err;
+    }
+  },
+);
+
+export const loginFacebook = createAsyncThunk(
+  'auth/loginFacebook',
+  async (input: IFacebookLogin, { dispatch }) => {
+    try {
+      const token = await apiSdk.authApis.loginFacebook(input);
       setToken(token);
       dispatch(authorized());
       dispatch(setSuccess({ message: 'Login Success' }));
