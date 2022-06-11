@@ -27,7 +27,11 @@ const HomePageContainer: React.FC = () => {
   return (
     <>
       {/* <Slider /> */}
-      <AutoPlay />
+      <AutoPlay
+        src={[
+          'https://sunrisemarketplace.com/wp-content/uploads/2017/09/SMP-books-banner.jpg',
+        ]}
+      />
       <BooksSection
         listItem={transformBookCart(newBookSelector.items)}
         title={t('home.title.newProduct')}

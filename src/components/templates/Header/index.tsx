@@ -245,11 +245,6 @@ const Header: React.FC<IHeader> = ({ bookCartLocal }) => {
                                           {t('header.cart.qty')}: {quantity}
                                         </span>
                                         <ul className="d-flex justify-content-end">
-                                          <li>
-                                            <a>
-                                              <i className="zmdi zmdi-settings" />
-                                            </a>
-                                          </li>
                                           <li
                                             onClick={() =>
                                               handleRemoveItemCart(id)

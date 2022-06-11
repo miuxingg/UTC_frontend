@@ -98,6 +98,7 @@ const CheckoutContainer: React.FC = () => {
     district: 1,
     ward: 1,
   });
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const [voucherSelected, setVoucherSelected] = useState<IVoucherApi>();
   const cartItem = useSelector(allCart);
@@ -212,6 +213,7 @@ const CheckoutContainer: React.FC = () => {
    */
 
   const handleFormSubmit = async (values: FormikValues) => {
+    setIsLoading(true);
     const orderLines = cartItem.items.map(
       ({ item: { id, price }, quantity }) => {
         return { bookId: id, price, quantity };
@@ -298,6 +300,7 @@ const CheckoutContainer: React.FC = () => {
         }
       }
     }
+    setIsLoading(false);
   };
 
   return (
@@ -512,7 +515,7 @@ const CheckoutContainer: React.FC = () => {
                         role="tablist"
                       >
                         <PaymentGatewayCart
-                          name="Paypal"
+                          name="VisaCard"
                           onChange={(state: boolean) =>
                             setIsStripePayment(state)
                           }
@@ -581,6 +584,14 @@ const CheckoutContainer: React.FC = () => {
                         </ul>
                       </div>
                       <ButtonSubmit type="submit">
+                        {isLoading ? (
+                          <img
+                            src="/images/loading-gif.gif"
+                            alt="loading"
+                            style={{ width: '25px', height: '25px' }}
+                          />
+                        ) : null}
+
                         {t('check-out.order.check-out')}
                       </ButtonSubmit>
                     </div>
