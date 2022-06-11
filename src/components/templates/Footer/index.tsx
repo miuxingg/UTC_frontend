@@ -1,6 +1,13 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { setWarning } from '../../../redux/app';
+import ShareFacebook from '../../collecttions/Sharing/Facebook';
+import ShareTwitter from '../../collecttions/Sharing/Twitter';
 
 const Footer: React.FC = () => {
+  const dispatch = useDispatch();
+  const { t } = useTranslation();
   return (
     <footer id="wn__footer" className="footer__area bg__cat--8 brown--color">
       <div className="footer-static-top">
@@ -12,41 +19,49 @@ const Footer: React.FC = () => {
                   <a href="index.html">
                     <img src="images/logo/3.png" alt="logo" />
                   </a>
-                  <p>
-                    There are many variations of passages of Lorem Ipsum
-                    available, but the majority have suffered duskam alteration
-                    variations of passages
-                  </p>
+                  <p>{t('footer.description')}</p>
                 </div>
                 <div className="footer__content">
                   <ul className="social__net social__net--2 d-flex justify-content-center">
                     <li>
-                      <a href="#">
-                        <i className="bi bi-facebook" />
+                      <a>
+                        <ShareFacebook url={'https://github.com/miuxingg'} />
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a
+                        onClick={() => {
+                          dispatch(setWarning({ message: 'Đang phát triển' }));
+                        }}
+                      >
                         <i className="bi bi-google" />
                       </a>
                     </li>
                     <li>
-                      <a href="#">
-                        <i className="bi bi-twitter" />
+                      <a>
+                        <ShareTwitter url={'https://github.com/miuxingg'} />
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a
+                        onClick={() => {
+                          dispatch(setWarning({ message: 'Đang phát triển' }));
+                        }}
+                      >
                         <i className="bi bi-linkedin" />
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a
+                        onClick={() => {
+                          dispatch(setWarning({ message: 'Đang phát triển' }));
+                        }}
+                      >
                         <i className="bi bi-youtube" />
                       </a>
                     </li>
                   </ul>
-                  <ul className="mainmenu d-flex justify-content-center">
+                  {/* <ul className="mainmenu d-flex justify-content-center">
                     <li>
                       <a href="index.html">Trending</a>
                     </li>
@@ -65,7 +80,7 @@ const Footer: React.FC = () => {
                     <li>
                       <a href="index.html">Contact</a>
                     </li>
-                  </ul>
+                  </ul> */}
                 </div>
               </div>
             </div>

@@ -15,7 +15,6 @@ import { setSuccess, setError, setWarning } from '../../../redux/app';
 import { authSelector } from '../../../redux/auth/selectors';
 import { addItemToCart, createCartItem } from '../../../redux/cart';
 import { toggleFavorite } from '../../../redux/favorite';
-
 export interface IBook {
   id: string;
   status?: string;

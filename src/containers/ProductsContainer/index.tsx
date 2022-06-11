@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import AutoPlay from '../../components/elements/SliderBanner';
 import { ITEM_PER_PAGE } from '../../configs';
 import { BookQueries } from '../../libs/utils/buildQueries';
 import { allBooksByFilter } from '../../redux/book';
@@ -112,24 +113,23 @@ const ProductsContainer: React.FC = () => {
   return (
     <div className="wrapper" id="wrapper">
       {/* Start Bradcaump area */}
-      <div className="ht__bradcaump__area bg-image--6">
+      {/* <div className="ht__bradcaump__area bg-image--6">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
               <div className="bradcaump__inner text-center">
-                {/* <h2 className="bradcaump-title">Shop Grid</h2>
-                <nav className="bradcaump-content">
-                  <a className="breadcrumb_item" href="index.html">
-                    Home
-                  </a>
-                  <span className="brd-separetor">/</span>
-                  <span className="breadcrumb_item active">Shop Grid</span>
-                </nav> */}
+                
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+      <AutoPlay
+        height="350px"
+        src={[
+          'https://sunrisemarketplace.com/wp-content/uploads/2017/09/SMP-books-banner.jpg',
+        ]}
+      />
       {/* End Bradcaump area */}
       {/* Start Shop Page */}
       <div className="page-shop-sidebar left--sidebar bg--white section-padding--lg">

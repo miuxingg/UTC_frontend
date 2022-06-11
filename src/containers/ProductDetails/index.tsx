@@ -21,6 +21,9 @@ import { moneyFormat } from '../../libs/utils';
 import { ListBookInCombo } from './Combo';
 import { useTranslation } from 'react-i18next';
 import { toggleFavorite } from '../../redux/favorite';
+import { useRouter } from 'next/router';
+import ShareFacebook from '../../components/collecttions/Sharing/Facebook';
+import ShareTwitter from '../../components/collecttions/Sharing/Twitter';
 
 const SeeMore = styled('span')({
   color: 'blue',
@@ -140,7 +143,12 @@ const ProductDetailContainer: React.FC = () => {
 
   return (
     <div className="wrapper" id="wrapper">
-      <div className="ht__bradcaump__area bg-image--4">
+      <div
+        className="ht__bradcaump__area "
+        style={{
+          backgroundImage: `url(https://thumbs.dreamstime.com/b/stylish-bright-poster-people-reading-books-orange-background-banner-saying-book-festival-date-promotion-colorful-118386605.jpg)`,
+        }}
+      >
         <div className="container">
           <div className="row">
             <div className="col-lg-12"></div>
@@ -251,22 +259,26 @@ const ProductDetailContainer: React.FC = () => {
                             {t('product-detail.share')} :
                           </li>
                           <li>
-                            <a href="#">
-                              <i className="icon-social-twitter icons" />
+                            <a>
+                              <ShareTwitter
+                                url={'https://github.com/miuxingg'}
+                              />
                             </a>
                           </li>
                           <li>
-                            <a href="#">
+                            <a>
                               <i className="icon-social-tumblr icons" />
                             </a>
                           </li>
                           <li>
-                            <a href="#">
-                              <i className="icon-social-facebook icons" />
+                            <a>
+                              <ShareFacebook
+                                url={'https://github.com/miuxingg'}
+                              />
                             </a>
                           </li>
                           <li>
-                            <a href="#">
+                            <a>
                               <i className="icon-social-linkedin icons" />
                             </a>
                           </li>

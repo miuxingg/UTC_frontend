@@ -33,7 +33,7 @@ const ProductDetail: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{t('header.cart.item')}</title>
+        <title>{t('header.shop')}</title>
       </Head>
       <Layout>
         <ProductDetailContainer />
