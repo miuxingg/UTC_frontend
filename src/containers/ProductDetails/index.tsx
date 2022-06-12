@@ -2,7 +2,7 @@ import { Box, Divider, Rating, styled } from '@mui/material';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Typography from '../../components/elements/Typography';
-import { REVIEW_COUNT } from '../../configs';
+import { PRODUCTION_URL, REVIEW_COUNT } from '../../configs';
 import {
   getItemDataStorage,
   LocalStorageKey,
@@ -24,6 +24,7 @@ import { toggleFavorite } from '../../redux/favorite';
 import { useRouter } from 'next/router';
 import ShareFacebook from '../../components/collecttions/Sharing/Facebook';
 import ShareTwitter from '../../components/collecttions/Sharing/Twitter';
+import { Routers } from '../../configs/navigator';
 
 const SeeMore = styled('span')({
   color: 'blue',
@@ -41,6 +42,8 @@ const ProductDetailContainer: React.FC = () => {
   const [rating, setRating] = useState<number>(5);
   const [comment, setComment] = useState<string>('');
   const [favoriteHover, setFavoriteHover] = useState<boolean>(false);
+
+  const shareLink = `${PRODUCTION_URL}${Routers.products.path}/${bookDetail.id}`;
 
   const handleAddToCart = () => {
     if (bookDetail.id && quantity > 0) {
@@ -92,12 +95,12 @@ const ProductDetailContainer: React.FC = () => {
             },
           }),
         );
-        dispatch(setSuccess({ message: 'Thêm vào giỏ hàng thành công' }));
+        dispatch(setSuccess({ message: t('add-to-cart.success') }));
       }
     } else {
       if (quantity <= 0) {
-        dispatch(setError({ message: 'Số lượng không hợp lệ' }));
-      } else dispatch(setError({ message: 'Thêm vào giỏ hàng thất bại' }));
+        dispatch(setError({ message: t('add-to-cart.invalid') }));
+      } else dispatch(setError({ message: t('add-to-cart.error') }));
     }
   };
 
@@ -120,7 +123,7 @@ const ProductDetailContainer: React.FC = () => {
         }),
       );
     } else {
-      dispatch(setError({ message: 'Cần phải đăng nhập để tiếp tục' }));
+      dispatch(setError({ message: t('unAuthenticated') }));
     }
   };
 
@@ -260,9 +263,7 @@ const ProductDetailContainer: React.FC = () => {
                           </li>
                           <li>
                             <a>
-                              <ShareTwitter
-                                url={'https://github.com/miuxingg'}
-                              />
+                              <ShareTwitter url={shareLink} />
                             </a>
                           </li>
                           <li>
@@ -272,9 +273,7 @@ const ProductDetailContainer: React.FC = () => {
                           </li>
                           <li>
                             <a>
-                              <ShareFacebook
-                                url={'https://github.com/miuxingg'}
-                              />
+                              <ShareFacebook url={shareLink} />
                             </a>
                           </li>
                           <li>

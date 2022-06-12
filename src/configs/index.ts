@@ -1,6 +1,9 @@
 export const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
+export const PRODUCTION_URL =
+  process.env.PRODUCTION_URL || 'https://utc-bookstore.herokuapp.com/';
+
 export const ITEM_PER_PAGE = 9;
 
 export const REVIEW_COUNT = 3;
@@ -33,3 +36,9 @@ export const BookStoreInfomation = {
   phone: '(84.24) 37663311',
   email: 'bookstore.project.utc@gmail.com',
 };
+
+export enum DocumentStatus {
+  Approved = 'Approved',
+  Pending = 'Pending',
+  Rejected = 'Rejected',
+}
