@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BookStoreInfomation } from '../../configs';
 import GoogleMap from './GoogleMap';
 
 const key = 'AIzaSyD9rLRWMcSrWloMWSVYRW9uiooequJQWSk';
 
+// const Mailto = ({ email, subject, body, children }) => {
+//   return (
+//     <a
+//       href={`mailto:${email}?subject=${
+//         encodeURIComponent(subject) || ''
+//       }&body=${encodeURIComponent(body) || ''}`}
+//     >
+//       {children}
+//     </a>
+//   );
+// };
+
 const ContactContainer: React.FC = () => {
   const { t } = useTranslation();
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
   return (
     <div>
       <div className="ht__bradcaump__area bg-image--6">
@@ -57,45 +71,63 @@ const ContactContainer: React.FC = () => {
               <div className="contact-form-wrap">
                 <h2 className="contact__title">{t('contact.get-in-touch')}</h2>
 
-                <form id="contact-form" action="#" method="post">
-                  <div className="single-contact-form space-between">
-                    <input
-                      type="text"
-                      name="firstname"
-                      placeholder={t('check-out.shipping.first-name')}
-                    />
-                    <input
-                      type="text"
-                      name="lastname"
-                      placeholder={t('check-out.shipping.last-name')}
-                    />
-                  </div>
-                  <div className="single-contact-form space-between">
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder={t('check-out.shipping.emails')}
-                    />
-                    {/* <input type="text" name="website" placeholder="Website*" /> */}
-                  </div>
-                  <div className="single-contact-form">
-                    <input
-                      type="text"
-                      name="subject"
-                      placeholder={t('contact.subject')}
-                    />
-                  </div>
-                  <div className="single-contact-form message">
-                    <textarea
-                      name="message"
-                      placeholder={t('contact.message')}
-                      defaultValue={''}
-                    />
-                  </div>
-                  <div className="contact-btn">
-                    <button type="submit">{t('contact.send-mail')}</button>
-                  </div>
-                </form>
+                {/* <div className="single-contact-form space-between">
+                  <input
+                    type="text"
+                    name="firstname"
+                    placeholder={t('check-out.shipping.first-name')}
+                  />
+                  <input
+                    type="text"
+                    name="lastname"
+                    placeholder={t('check-out.shipping.last-name')}
+                  />
+                </div>
+                <div className="single-contact-form space-between">
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder={t('check-out.shipping.emails')}
+                  />
+                </div> */}
+                <div className="single-contact-form">
+                  <input
+                    type="text"
+                    name="subject"
+                    placeholder={t('contact.subject')}
+                    onChange={(e: any) => setTitle(e.target.value)}
+                  />
+                </div>
+                <div className="single-contact-form message">
+                  <textarea
+                    name="message"
+                    placeholder={t('contact.message')}
+                    defaultValue={''}
+                    onChange={(e: any) => setContent(e.target.value)}
+                    style={{ resize: 'none' }}
+                  />
+                </div>
+                <div className="contact-btn">
+                  <a
+                    href={`mailto:${BookStoreInfomation.email}?subject=${title}&body=${content}`}
+                    style={{
+                      background: 'rgba(0, 0, 0, 0) none repeat scroll 0 0',
+                      border: '2px solid #333',
+                      boxShadow: 'none',
+                      color: '#333',
+                      display: 'inline-block',
+                      fontSize: '12px',
+                      fontWeight: 700,
+                      lineHeight: '34px',
+                      padding: '2px 20px 0',
+                      textShadow: 'none',
+                      textTransform: 'uppercase',
+                      transition: 'all 0.4s ease 0s',
+                    }}
+                  >
+                    Feedback
+                  </a>
+                </div>
               </div>
               <div className="form-output">
                 <p className="form-messege"></p>

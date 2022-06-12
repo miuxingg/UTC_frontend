@@ -1,12 +1,12 @@
 import React from 'react';
-import { FacebookShareButton, TwitterShareButton } from 'react-share';
+import { FacebookShareButton } from 'react-share';
 import { IShareProps } from '../type';
 
 const ShareFacebook: React.FC<IShareProps> = ({ url }) => {
   return (
     <FacebookShareButton
       url={url}
-      quote="hello world"
+      quote="BookStore"
       hashtag={'#BookStore'}
       // description={'aiueo'}
       className="Demo__some-network__share-button"

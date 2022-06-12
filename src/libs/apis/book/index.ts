@@ -1,6 +1,7 @@
 /* eslint-disable require-jsdoc */
 import { Pagination } from '@mui/material';
 import { AxiosInstance } from 'axios';
+import { DocumentStatus } from '../../../configs';
 import { IPaginationOutput } from '../../../configs/types';
 import { BookQueries } from '../../utils/buildQueries';
 import { IBookApi, ICheckQuantityBook, ICheckQuantityInput } from './types';
@@ -12,7 +13,7 @@ export class BookApi {
     queries?: BookQueries,
   ): Promise<IPaginationOutput<IBookApi>> {
     const { data } = await this.axiosInstance.get('/books', {
-      params: { ...queries },
+      params: { ...queries, documentStatus: DocumentStatus.Approved },
     });
     return data;
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
+import { PRODUCTION_URL } from '../../../configs';
 import { setWarning } from '../../../redux/app';
 import ShareFacebook from '../../collecttions/Sharing/Facebook';
 import ShareTwitter from '../../collecttions/Sharing/Twitter';
@@ -25,7 +26,7 @@ const Footer: React.FC = () => {
                   <ul className="social__net social__net--2 d-flex justify-content-center">
                     <li>
                       <a>
-                        <ShareFacebook url={'https://github.com/miuxingg'} />
+                        <ShareFacebook url={PRODUCTION_URL} />
                       </a>
                     </li>
                     <li>
@@ -39,7 +40,7 @@ const Footer: React.FC = () => {
                     </li>
                     <li>
                       <a>
-                        <ShareTwitter url={'https://github.com/miuxingg'} />
+                        <ShareTwitter url={PRODUCTION_URL} />
                       </a>
                     </li>
                     <li>

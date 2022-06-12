@@ -152,5 +152,9 @@
   "contact.send-mail": "Send Email",
   "contact.get-in-touch": "Get In Touch",
   "contact.get-in-touch-details": "Contact",
-  "footer.description": "At the moment that we persuade a child, any child, to cross that threshold, that magic threshold into a library, we change their lives forever, for the better -  Barack Obama"
+  "footer.description": "At the moment that we persuade a child, any child, to cross that threshold, that magic threshold into a library, we change their lives forever, for the better -  Barack Obama",
+  "add-to-cart.success": "Add to cart success",
+  "add-to-cart.error": "Add to cart failured",
+  "add-to-cart.invalid": "Number invalid",
+  "thank-to": "We have been pleased to serve you throughout the years. We hope to continue this relationship in the coming year with respect and dignity. Wishing you a happy and fulfilling new year."
 }
