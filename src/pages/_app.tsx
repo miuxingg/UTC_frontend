@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { theme } from '../libs/theme';
 import { useDispatch, useSelector } from 'react-redux';

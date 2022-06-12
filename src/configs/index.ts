@@ -4,6 +4,8 @@ export const API_BASE_URL =
 export const PRODUCTION_URL =
   process.env.PRODUCTION_URL || 'https://utc-bookstore.herokuapp.com/';
 
+export const FacebookAppId = '596511131806490';
+
 export const ITEM_PER_PAGE = 9;
 
 export const REVIEW_COUNT = 3;

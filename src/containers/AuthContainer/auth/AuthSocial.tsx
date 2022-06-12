@@ -7,6 +7,7 @@ import GoogleLoginForm from '../../SocialLoginContainer/Google';
 import Iconify from './Iconify';
 import FacebookLogin from 'react-facebook-login';
 import { useRef } from 'react';
+import { FacebookAppId } from '../../../configs';
 
 const clientId =
   '200970573554-v8qm3tftfsikng4l2umi1gdcb2jv2bl0.apps.googleusercontent.com';
@@ -54,7 +55,7 @@ export const AuthSocial: React.FC = () => {
         </Button>
         <FacebookLogin
           ref={ref}
-          appId="596511131806490"
+          appId={FacebookAppId}
           autoLoad={false}
           fields="name,email,picture"
           callback={responseFacebook}
