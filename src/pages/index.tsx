@@ -15,7 +15,10 @@ import { BookStatus } from '../libs/utils/buildQueries';
 import { apiSdk } from '../libs/apis';
 import { getAllBlog } from '../redux/blog';
 import Head from 'next/head';
+import { FacebookAppId } from '../configs';
 import { useTranslation } from 'react-i18next';
+
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 
 const Home: NextPage = () => {
   const dispatch = useDispatch();
@@ -35,6 +38,7 @@ const Home: NextPage = () => {
       <Layout>
         <HomePageContainer />
       </Layout>
+      <MessengerCustomerChat pageId="105048855503713" appId={FacebookAppId} />
     </>
   );
 };
