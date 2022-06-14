@@ -21,7 +21,6 @@ import { moneyFormat } from '../../libs/utils';
 import { ListBookInCombo } from './Combo';
 import { useTranslation } from 'react-i18next';
 import { toggleFavorite } from '../../redux/favorite';
-import { useRouter } from 'next/router';
 import ShareFacebook from '../../components/collecttions/Sharing/Facebook';
 import ShareTwitter from '../../components/collecttions/Sharing/Twitter';
 import { Routers } from '../../configs/navigator';
