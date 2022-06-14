@@ -67,7 +67,11 @@ export const checkQuantityBook = createAsyncThunk(
 export const bookSlice = createGenericSlice({
   name: 'books',
   initialState,
-  reducers: {},
+  reducers: {
+    getBookById(state, action) {
+      state.bookDetail = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(getNewsBook.fulfilled, (state, action) => {
       state.newBook = {
@@ -147,6 +151,6 @@ export const bookSlice = createGenericSlice({
   },
 });
 
-// export const {} = bookSlice.actions;
+export const { getBookById } = bookSlice.actions;
 
 export default bookSlice.reducer;

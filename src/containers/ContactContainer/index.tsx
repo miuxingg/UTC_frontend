@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import AutoPlay from '../../components/elements/SliderBanner';
 import { BookStoreInfomation } from '../../configs';
 import GoogleMap from './GoogleMap';
 
@@ -23,24 +24,7 @@ const ContactContainer: React.FC = () => {
   const [content, setContent] = useState('');
   return (
     <div>
-      <div className="ht__bradcaump__area bg-image--6">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              {/* <div className="bradcaump__inner text-center">
-                <h2 className="bradcaump-title">Contact Us</h2>
-                <nav className="bradcaump-content">
-                  <a className="breadcrumb_item" href="index.html">
-                    Home
-                  </a>
-                  <span className="brd-separetor">/</span>
-                  <span className="breadcrumb_item active">Contact Us</span>
-                </nav>
-              </div> */}
-            </div>
-          </div>
-        </div>
-      </div>
+      <AutoPlay src={['images/bg/banner-checkout.png']} />
       <section className="wn_contact_area bg--white pt--80 pb--80">
         <div className="google__map pb--80">
           <div className="container">

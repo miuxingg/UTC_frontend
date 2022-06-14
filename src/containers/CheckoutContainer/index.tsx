@@ -40,6 +40,7 @@ import { useTranslation } from 'react-i18next';
 import PopupVocher from '../../components/collecttions/PopupVocher';
 import { allVoucherSelector } from '../../redux/voucher/selectors';
 import { IVoucherApi } from '../../libs/apis/voucher/types';
+import AutoPlay from '../../components/elements/SliderBanner';
 
 const ButtonSubmit = styled(Button)({
   width: '100%',
@@ -305,35 +306,7 @@ const CheckoutContainer: React.FC = () => {
 
   return (
     <div className="wrapper" id="wrapper">
-      {/* Start Bradcaump area */}
-      <div
-        className="ht__bradcaump__area"
-        style={{
-          backgroundImage: 'url(images/bg/banner-checkout.png)',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center center',
-        }}
-      >
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              {/* <div className="bradcaump__inner text-center">
-                <h2 className="bradcaump-title">Checkout</h2>
-                <nav className="bradcaump-content">
-                  <a className="breadcrumb_item" href="index.html">
-                    Home
-                  </a>
-                  <span className="brd-separetor">/</span>
-                  <span className="breadcrumb_item active">Checkout</span>
-                </nav>
-              </div> */}
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* End Bradcaump area */}
-      {/* Start Checkout Area */}
+      <AutoPlay src={['images/bg/banner-checkout.png']} />
       <section className="wn__checkout__area section-padding--lg bg__white">
         <Formik
           onSubmit={handleFormSubmit}
@@ -350,24 +323,6 @@ const CheckoutContainer: React.FC = () => {
                       listVoucher={vouchers?.items ?? []}
                       onClick={handleChooseVoucher}
                     />
-                    {/* <div className="col-lg-12">
-                      <div className="wn_checkout_wrap">
-                        <div className="checkout_info">
-                          <span>Have a coupon? </span>
-                          <a className="showcoupon" href="#">
-                            Click here to enter your code
-                          </a>
-                        </div>
-                        <div className="checkout_coupon">
-                          <form action="#">
-                            <div className="form__coupon">
-                              <input type="text" placeholder="Coupon code" />
-                              <button>Apply coupon</button>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div> */}
                   </div>
                   <div className="row">
                     <div className="col-lg-6 col-12">
