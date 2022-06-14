@@ -112,26 +112,11 @@ const ProductsContainer: React.FC = () => {
 
   return (
     <div className="wrapper" id="wrapper">
-      {/* Start Bradcaump area */}
-      {/* <div className="ht__bradcaump__area bg-image--6">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="bradcaump__inner text-center">
-                
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
       <AutoPlay
-        height="350px"
         src={[
-          'https://sunrisemarketplace.com/wp-content/uploads/2017/09/SMP-books-banner.jpg',
+          'https://canhcoupon.com/images/khuyen-mai/2017/04/tuan-sach-sieu-khuyen-mai-giam-gia-den-40-tiki-banner.jpg',
         ]}
       />
-      {/* End Bradcaump area */}
-      {/* Start Shop Page */}
       <div className="page-shop-sidebar left--sidebar bg--white section-padding--lg">
         <div className="container">
           <div className="row">

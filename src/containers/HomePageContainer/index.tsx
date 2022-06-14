@@ -29,7 +29,9 @@ const HomePageContainer: React.FC = () => {
       {/* <Slider /> */}
       <AutoPlay
         src={[
-          'https://sunrisemarketplace.com/wp-content/uploads/2017/09/SMP-books-banner.jpg',
+          'https://t4.ftcdn.net/jpg/03/32/05/99/360_F_332059997_pTIqpe37YPEADwKdVL0ZoAy1K1Qdm02R.jpg',
+          'https://t3.ftcdn.net/jpg/04/27/15/08/360_F_427150821_oQOZiOLP6lnWQdUmUG0YgQiTUsjmaGwE.jpg',
+          'https://img.freepik.com/fotos-gratis/banner-horizontal-com-pilha-de-livros-do-lado-direito-para-projetos-educacionais_351987-173.jpg',
         ]}
       />
       <BooksSection

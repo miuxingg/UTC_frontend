@@ -7,7 +7,7 @@ const NewsLetter: React.FC = () => {
     <section
       className="wn__newsletter__area"
       style={{
-        backgroundImage: `url(images/bg/bg2.jpg)`,
+        backgroundImage: `url(https://thumbs.dreamstime.com/b/book-banner-books-set-isolated-pink-background-library-bookstore-knowledge-day-reading-literature-study-education-concept-215870776.jpg)`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         backgroundPosition: 'center center',

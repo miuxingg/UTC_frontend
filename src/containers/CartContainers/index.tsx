@@ -11,6 +11,7 @@ import { useRouter } from 'next/router';
 import { Routers } from '../../configs/navigator';
 import { useTranslation } from 'react-i18next';
 import { authSelector } from '../../redux/auth/selectors';
+import AutoPlay from '../../components/elements/SliderBanner';
 
 export const Button = styled('button')({
   background: '#fff none repeat scroll 0 0',
@@ -50,35 +51,11 @@ const CartContainer: React.FC = () => {
 
   return (
     <div className="wrapper" id="wrapper">
-      {/* Start Bradcaump area */}
-      <div
-        className="ht__bradcaump__area"
-        style={{
-          backgroundImage: 'url(images/bg/banner-cart.jpg)',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center center',
-        }}
-      >
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              {/* <div className="bradcaump__inner text-center">
-                <h2 className="bradcaump-title">Shopping Cart</h2>
-                <nav className="bradcaump-content">
-                  <a className="breadcrumb_item" href="index.html">
-                    Home
-                  </a>
-                  <span className="brd-separetor">/</span>
-                  <span className="breadcrumb_item active">Shopping Cart</span>
-                </nav>
-              </div> */}
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* End Bradcaump area */}
-      {/* cart-main-area start */}
+      <AutoPlay
+        src={[
+          'https://img.freepik.com/free-vector/flat-world-book-day-sale-horizontal-banner-template_23-2149348033.jpg',
+        ]}
+      />
       <div className="cart-main-area section-padding--lg bg--white">
         <div className="container">
           <div className="row">
