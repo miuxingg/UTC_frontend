@@ -23,7 +23,7 @@ const ProductDetail: NextPage = () => {
 
   useEffect(() => {
     if (id) {
-      // dispatch(bookById(id as string));
+      dispatch(bookById(id as string));
       dispatch(getAllCategory());
       dispatch(cloudtag());
       dispatch(

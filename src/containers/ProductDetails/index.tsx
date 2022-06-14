@@ -25,6 +25,7 @@ import { useRouter } from 'next/router';
 import ShareFacebook from '../../components/collecttions/Sharing/Facebook';
 import ShareTwitter from '../../components/collecttions/Sharing/Twitter';
 import { Routers } from '../../configs/navigator';
+import Head from 'next/head';
 
 const SeeMore = styled('span')({
   color: 'blue',
@@ -145,280 +146,285 @@ const ProductDetailContainer: React.FC = () => {
   };
 
   return (
-    <div className="wrapper" id="wrapper">
-      <div
-        className="ht__bradcaump__area "
-        style={{
-          backgroundImage: `url(https://thumbs.dreamstime.com/b/stylish-bright-poster-people-reading-books-orange-background-banner-saying-book-festival-date-promotion-colorful-118386605.jpg)`,
-        }}
-      >
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12"></div>
+    <>
+      <Head>
+        <meta property="og:title" content={bookDetail.thumbnail} />
+      </Head>
+      <div className="wrapper" id="wrapper">
+        <div
+          className="ht__bradcaump__area "
+          style={{
+            backgroundImage: `url(https://thumbs.dreamstime.com/b/stylish-bright-poster-people-reading-books-orange-background-banner-saying-book-festival-date-promotion-colorful-118386605.jpg)`,
+          }}
+        >
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-12"></div>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="maincontent bg--white pt--80 pb--55">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-9 col-12">
-              <div className="wn__single__product">
-                <div className="row">
-                  <div className="col-lg-6 col-12">
-                    <ImageSlide listImage={bookDetail.images} />
-                  </div>
-                  <div className="col-lg-6 col-12">
-                    <div className="product__info__main">
-                      <h1>{bookDetail.name}</h1>
-                      <Rating
-                        name="size-small"
-                        value={bookDetail.rating}
-                        size="small"
-                        defaultValue={bookDetail.rating}
-                        disabled
-                      />
-                      <Typography fontSize="14px">
-                        {bookDetail.author}
-                      </Typography>
-                      <div className="price-box">
-                        <span>{moneyFormat(bookDetail.price)}</span>
-                      </div>
-                      <div className="product__overview">
-                        <aside className="wedget__categories poroduct--tag">
-                          <ul>
-                            {bookDetail.cloudTag?.map((item, i) => {
-                              return (
-                                <li key={i}>
-                                  <a>{item}</a>
-                                </li>
-                              );
-                            })}
-                          </ul>
-                        </aside>
-                      </div>
-                      <div className="box-tocart d-flex">
-                        <span>Qty</span>
-                        <input
-                          id="qty"
-                          className="input-text qty"
-                          name="qty"
-                          min={1}
-                          defaultValue={1}
-                          title="Qty"
-                          type="number"
-                          onChange={(e) => setQuantity(+e.target.value)}
+        <div className="maincontent bg--white pt--80 pb--55">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-9 col-12">
+                <div className="wn__single__product">
+                  <div className="row">
+                    <div className="col-lg-6 col-12">
+                      <ImageSlide listImage={bookDetail.images} />
+                    </div>
+                    <div className="col-lg-6 col-12">
+                      <div className="product__info__main">
+                        <h1>{bookDetail.name}</h1>
+                        <Rating
+                          name="size-small"
+                          value={bookDetail.rating}
+                          size="small"
+                          defaultValue={bookDetail.rating}
+                          disabled
                         />
-                        <div className="addtocart__actions">
-                          <button
-                            className="tocart"
-                            type="button"
-                            title="Add to Cart"
-                            onClick={() => handleAddToCart()}
-                          >
-                            {t('product-detail.add-cart')}
-                          </button>
+                        <Typography fontSize="14px">
+                          {bookDetail.author}
+                        </Typography>
+                        <div className="price-box">
+                          <span>{moneyFormat(bookDetail.price)}</span>
                         </div>
-                        <div className="product-addto-links clearfix">
-                          <a
-                            className="wishlist"
-                            onClick={handleToggleFavoriteClick}
-                            style={{
-                              backgroundColor:
-                                bookDetail.isFavorite || favoriteHover
-                                  ? '#e59285'
-                                  : '#fff',
-                              borderColor:
-                                bookDetail.isFavorite || favoriteHover
-                                  ? '#e59285'
-                                  : '#ebebeb',
-                              cursor: 'pointer',
-                            }}
-                            onMouseEnter={() => setFavoriteHover(true)}
-                            onMouseLeave={() => setFavoriteHover(false)}
-                          />
-                          <a className="compare" href="#" />
-                        </div>
-                      </div>
-                      <div className="product_meta">
-                        <span className="posted_in">
-                          {t('product-detail.category')}:&nbsp;
-                          {bookDetail?.category
-                            ? bookDetail.category.map((item, i) => {
+                        <div className="product__overview">
+                          <aside className="wedget__categories poroduct--tag">
+                            <ul>
+                              {bookDetail.cloudTag?.map((item, i) => {
                                 return (
-                                  <a key={item.id}>
-                                    {item.name}&nbsp;
-                                    {i !== bookDetail?.category?.length! - 1
-                                      ? ', '
-                                      : null}
-                                  </a>
+                                  <li key={i}>
+                                    <a>{item}</a>
+                                  </li>
                                 );
-                              })
-                            : null}
-                        </span>
-                      </div>
-                      <div className="product-share">
-                        <ul>
-                          <li className="categories-title">
-                            {t('product-detail.share')} :
-                          </li>
-                          <li>
-                            <a>
-                              <ShareTwitter url={shareLink} />
-                            </a>
-                          </li>
-                          <li>
-                            <a>
-                              <i className="icon-social-tumblr icons" />
-                            </a>
-                          </li>
-                          <li>
-                            <a>
-                              <ShareFacebook url={shareLink} />
-                            </a>
-                          </li>
-                          <li>
-                            <a>
-                              <i className="icon-social-linkedin icons" />
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {bookDetail.isCombo ? (
-                <Box mt={6} mb={4}>
-                  <Box>
-                    <Typography fontWeight={600} fontSize={24} mb={3}>
-                      {t('product-detail.combo')}
-                    </Typography>
-                  </Box>
-                  <ListBookInCombo list={bookDetail.books || []} />
-                </Box>
-              ) : null}
-
-              <div className="product__info__detailed">
-                <div
-                  className="pro_details_nav nav justify-content-start"
-                  role="tablist"
-                >
-                  <a
-                    className="nav-item nav-link active"
-                    data-toggle="tab"
-                    href="#nav-details"
-                    role="tab"
-                  >
-                    {t('product-detail.detail')}
-                  </a>
-                  <a
-                    className="nav-item nav-link"
-                    data-toggle="tab"
-                    href="#nav-summary"
-                    role="tab"
-                  >
-                    {t('product-detail.summary')}
-                  </a>
-                  <a
-                    className="nav-item nav-link"
-                    data-toggle="tab"
-                    href="#nav-review"
-                    role="tab"
-                  >
-                    {t('product-detail.review')}
-                  </a>
-                </div>
-                <div className="tab__container">
-                  <div
-                    className="pro__tab_label tab-pane fade show active"
-                    id="nav-details"
-                    role="tabpanel"
-                  >
-                    <div className="description__attribute">
-                      <p>{bookDetail.description}</p>
-                    </div>
-                  </div>
-                  <div
-                    className="pro__tab_label tab-pane fade"
-                    id="nav-summary"
-                    role="tabpanel"
-                  >
-                    <div className="description__attribute">
-                      <pre>
-                        <div
-                          dangerouslySetInnerHTML={{
-                            __html: bookDetail?.summary || '',
-                          }}
-                        />
-                      </pre>
-                    </div>
-                  </div>
-
-                  <div
-                    className="pro__tab_label tab-pane fade"
-                    id="nav-review"
-                    role="tabpanel"
-                  >
-                    <div>
-                      <h3>{t('product-detail.review.custom-review')}</h3>
-                      {reviews.items.map((item, i) => {
-                        return (
-                          <React.Fragment key={i}>
-                            <Review
-                              comment={item.comment}
-                              rating={item.rating}
-                              username={`${item.user.firstName} ${item.user.lastName}`}
-                              avatar={item.user.avatar}
-                              timestamps={dayjs(item.createdAt).format(
-                                'DD/MM/YYYY',
-                              )}
+                              })}
+                            </ul>
+                          </aside>
+                        </div>
+                        <div className="box-tocart d-flex">
+                          <span>Qty</span>
+                          <input
+                            id="qty"
+                            className="input-text qty"
+                            name="qty"
+                            min={1}
+                            defaultValue={1}
+                            title="Qty"
+                            type="number"
+                            onChange={(e) => setQuantity(+e.target.value)}
+                          />
+                          <div className="addtocart__actions">
+                            <button
+                              className="tocart"
+                              type="button"
+                              title="Add to Cart"
+                              onClick={() => handleAddToCart()}
+                            >
+                              {t('product-detail.add-cart')}
+                            </button>
+                          </div>
+                          <div className="product-addto-links clearfix">
+                            <a
+                              className="wishlist"
+                              onClick={handleToggleFavoriteClick}
+                              style={{
+                                backgroundColor:
+                                  bookDetail.isFavorite || favoriteHover
+                                    ? '#e59285'
+                                    : '#fff',
+                                borderColor:
+                                  bookDetail.isFavorite || favoriteHover
+                                    ? '#e59285'
+                                    : '#ebebeb',
+                                cursor: 'pointer',
+                              }}
+                              onMouseEnter={() => setFavoriteHover(true)}
+                              onMouseLeave={() => setFavoriteHover(false)}
                             />
-                            {i !== reviews.items.length - 1 ? (
-                              <Divider />
-                            ) : null}
-                          </React.Fragment>
-                        );
-                      })}
-                      {reviews.total !== reviews.items.length ? (
-                        <SeeMore onClick={handleSeeMoreReview}>
-                          {t('product-detail.review.see-more', {
-                            total: reviews.total - reviews.items.length,
-                          })}
-                        </SeeMore>
-                      ) : null}
-                    </div>
-                    <div className="review-fieldset">
-                      <h3>{t('product-detail.review.your-review')}</h3>
-                      <div className="review_form_field">
-                        <div className="review__ratings__type d-flex">
-                          <div className="review-ratings">
-                            <Box display="flex" alignItems="center" mb={3}>
-                              <Typography fontWeight={600}>
-                                {t('product-detail.review.rating')}
-                              </Typography>
-                              <Box mt={1} mx={2}>
-                                <Rating
-                                  name="size-small"
-                                  onChange={handleRatingChange}
-                                  size="small"
-                                />
-                              </Box>
-                            </Box>
+                            <a className="compare" href="#" />
                           </div>
                         </div>
-                        <div className="input__box">
-                          <Typography fontWeight={600}>
-                            {t('product-detail.review.review-content')}
-                          </Typography>
-                          <textarea
-                            name="review"
-                            onChange={(e) => setComment(e.target.value)}
-                          />
+                        <div className="product_meta">
+                          <span className="posted_in">
+                            {t('product-detail.category')}:&nbsp;
+                            {bookDetail?.category
+                              ? bookDetail.category.map((item, i) => {
+                                  return (
+                                    <a key={item.id}>
+                                      {item.name}&nbsp;
+                                      {i !== bookDetail?.category?.length! - 1
+                                        ? ', '
+                                        : null}
+                                    </a>
+                                  );
+                                })
+                              : null}
+                          </span>
                         </div>
-                        <div className="review-form-actions">
-                          <button onClick={handleSubmitReview}>
-                            {t('product-detail.review.submit-review')}
-                          </button>
+                        <div className="product-share">
+                          <ul>
+                            <li className="categories-title">
+                              {t('product-detail.share')} :
+                            </li>
+                            <li>
+                              <a>
+                                <ShareTwitter url={shareLink} />
+                              </a>
+                            </li>
+                            <li>
+                              <a>
+                                <i className="icon-social-tumblr icons" />
+                              </a>
+                            </li>
+                            <li>
+                              <a>
+                                <ShareFacebook url={shareLink} />
+                              </a>
+                            </li>
+                            <li>
+                              <a>
+                                <i className="icon-social-linkedin icons" />
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {bookDetail.isCombo ? (
+                  <Box mt={6} mb={4}>
+                    <Box>
+                      <Typography fontWeight={600} fontSize={24} mb={3}>
+                        {t('product-detail.combo')}
+                      </Typography>
+                    </Box>
+                    <ListBookInCombo list={bookDetail.books || []} />
+                  </Box>
+                ) : null}
+
+                <div className="product__info__detailed">
+                  <div
+                    className="pro_details_nav nav justify-content-start"
+                    role="tablist"
+                  >
+                    <a
+                      className="nav-item nav-link active"
+                      data-toggle="tab"
+                      href="#nav-details"
+                      role="tab"
+                    >
+                      {t('product-detail.detail')}
+                    </a>
+                    <a
+                      className="nav-item nav-link"
+                      data-toggle="tab"
+                      href="#nav-summary"
+                      role="tab"
+                    >
+                      {t('product-detail.summary')}
+                    </a>
+                    <a
+                      className="nav-item nav-link"
+                      data-toggle="tab"
+                      href="#nav-review"
+                      role="tab"
+                    >
+                      {t('product-detail.review')}
+                    </a>
+                  </div>
+                  <div className="tab__container">
+                    <div
+                      className="pro__tab_label tab-pane fade show active"
+                      id="nav-details"
+                      role="tabpanel"
+                    >
+                      <div className="description__attribute">
+                        <p>{bookDetail.description}</p>
+                      </div>
+                    </div>
+                    <div
+                      className="pro__tab_label tab-pane fade"
+                      id="nav-summary"
+                      role="tabpanel"
+                    >
+                      <div className="description__attribute">
+                        <pre>
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: bookDetail?.summary || '',
+                            }}
+                          />
+                        </pre>
+                      </div>
+                    </div>
+
+                    <div
+                      className="pro__tab_label tab-pane fade"
+                      id="nav-review"
+                      role="tabpanel"
+                    >
+                      <div>
+                        <h3>{t('product-detail.review.custom-review')}</h3>
+                        {reviews.items.map((item, i) => {
+                          return (
+                            <React.Fragment key={i}>
+                              <Review
+                                comment={item.comment}
+                                rating={item.rating}
+                                username={`${item.user.firstName} ${item.user.lastName}`}
+                                avatar={item.user.avatar}
+                                timestamps={dayjs(item.createdAt).format(
+                                  'DD/MM/YYYY',
+                                )}
+                              />
+                              {i !== reviews.items.length - 1 ? (
+                                <Divider />
+                              ) : null}
+                            </React.Fragment>
+                          );
+                        })}
+                        {reviews.total !== reviews.items.length ? (
+                          <SeeMore onClick={handleSeeMoreReview}>
+                            {t('product-detail.review.see-more', {
+                              total: reviews.total - reviews.items.length,
+                            })}
+                          </SeeMore>
+                        ) : null}
+                      </div>
+                      <div className="review-fieldset">
+                        <h3>{t('product-detail.review.your-review')}</h3>
+                        <div className="review_form_field">
+                          <div className="review__ratings__type d-flex">
+                            <div className="review-ratings">
+                              <Box display="flex" alignItems="center" mb={3}>
+                                <Typography fontWeight={600}>
+                                  {t('product-detail.review.rating')}
+                                </Typography>
+                                <Box mt={1} mx={2}>
+                                  <Rating
+                                    name="size-small"
+                                    onChange={handleRatingChange}
+                                    size="small"
+                                  />
+                                </Box>
+                              </Box>
+                            </div>
+                          </div>
+                          <div className="input__box">
+                            <Typography fontWeight={600}>
+                              {t('product-detail.review.review-content')}
+                            </Typography>
+                            <textarea
+                              name="review"
+                              onChange={(e) => setComment(e.target.value)}
+                            />
+                          </div>
+                          <div className="review-form-actions">
+                            <button onClick={handleSubmitReview}>
+                              {t('product-detail.review.submit-review')}
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -429,7 +435,7 @@ const ProductDetailContainer: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
