@@ -6,8 +6,10 @@ import Blog from '../../collecttions/Blog';
 import BlogCard from './BlogCard';
 interface IOurBlog {
   blogList: IBlogApi[];
+  title: string;
 }
-export const OurBlog: React.FC<IOurBlog> = ({ blogList }) => {
+export const OurBlog: React.FC<IOurBlog> = ({ blogList, title }) => {
+  const newTitle = title.split(' ');
   return (
     <section className="wn__recent__post bg--gray ptb--80">
       <div className="container">
@@ -15,13 +17,15 @@ export const OurBlog: React.FC<IOurBlog> = ({ blogList }) => {
           <div className="col-lg-12">
             <div className="section__title text-center">
               <h2 className="title__be--2">
-                Our <span className="color--theme">Blog</span>
+                <h2 className="title__be--2">
+                  {newTitle.slice(0, Math.ceil(newTitle.length / 2)).join(' ')}{' '}
+                  <span className="color--theme">
+                    {newTitle
+                      .slice(Math.ceil(newTitle.length / 2), newTitle.length)
+                      .join(' ')}
+                  </span>
+                </h2>
               </h2>
-              <p>
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered lebmid alteration in some ledmid
-                form
-              </p>
             </div>
           </div>
         </div>

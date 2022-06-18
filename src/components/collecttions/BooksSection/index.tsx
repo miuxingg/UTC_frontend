@@ -17,13 +17,6 @@ export const BooksSection: React.FC<IBookSection> = ({
   const data = listItem.map((item) => {
     return item;
   });
-  // const data = [
-  //   listItem[0],
-  //   listItem[1],
-  //   listItem[2],
-  //   listItem[3],
-  //   listItem[4],
-  // ];
   return (
     <section className="wn__product__area brown--color pt--80  pb--30">
       <div className="container">
