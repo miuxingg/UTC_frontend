@@ -7937,6 +7937,17 @@ a.checkout__title {
   background-color: #fff;
 }
 
+.facebook-login-wrapper {
+  background-color: #fff;
+  width: 140px;
+  height: 67px;
+  border: 1px solid currentColor;
+  color: inherit;
+  border-color: currentColor;
+  /* width: 100%; */
+  border-radius: 5px;
+}
+
 @media only screen and (min-width: 1601px) and (max-width: 1919px) {
   .wrapper-boxed-layout {
     margin: 0 70px;

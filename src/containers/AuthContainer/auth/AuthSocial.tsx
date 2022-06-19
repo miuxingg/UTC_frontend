@@ -1,26 +1,20 @@
 // material
 import { Stack, Button, Divider, Typography } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { loginFacebook, loginGoogle } from '../../../redux/auth/action';
-import GoogleLoginForm from '../../SocialLoginContainer/Google';
+import { loginFacebook } from '../../../redux/auth/action';
 // component
 import Iconify from './Iconify';
 import FacebookLogin from 'react-facebook-login';
 import { useRef } from 'react';
 import { FacebookAppId } from '../../../configs';
+import GoogleLogin, { useGoogleLogin } from 'react-google-login';
+import { setError } from '../../../redux/app';
 
 const clientId =
-  '200970573554-v8qm3tftfsikng4l2umi1gdcb2jv2bl0.apps.googleusercontent.com';
-// ----------------------------------------------------------------------
+  '532459309976-u4anma0797gt5vfgahcran9fib07vdi2.apps.googleusercontent.com';
 export const AuthSocial: React.FC = () => {
   const dispatch = useDispatch();
-  const ref = useRef<any>();
-  const handleLoginGoogle = () => {
-    dispatch(loginGoogle());
-  };
-
   const responseFacebook = (response: any) => {
-    console.log(response);
     if (response?.email) {
       dispatch(
         loginFacebook({
@@ -35,16 +29,44 @@ export const AuthSocial: React.FC = () => {
   const componentClicked = (values: any) => {
     console.log(values);
   };
+
+  const onSuccess = (response: any) => {
+    const {
+      profileObj: { email, name, imageUrl },
+    } = response;
+
+    if (email) {
+      dispatch(
+        loginFacebook({
+          email: email,
+          name: name || '',
+          avatar: imageUrl || '',
+        }),
+      );
+    }
+  };
+
+  const onFailure = (response: any) => {
+    console.log(response);
+    dispatch(setError({ message: 'Login failure' }));
+  };
+
+  const { signIn } = useGoogleLogin({
+    onSuccess,
+    onFailure,
+    clientId,
+    isSignedIn: false,
+    accessType: 'offline',
+  });
   return (
     <>
-      {/* <GoogleLoginForm clientId={clientId} /> */}
       <Stack direction="row" spacing={2}>
         <Button
           fullWidth
           size="large"
           color="inherit"
           variant="outlined"
-          onClick={handleLoginGoogle}
+          onClick={signIn}
         >
           <Iconify
             icon="eva:google-fill"
@@ -54,7 +76,7 @@ export const AuthSocial: React.FC = () => {
           />
         </Button>
         <FacebookLogin
-          ref={ref}
+          cssClass="facebook-login-wrapper"
           appId={FacebookAppId}
           autoLoad={false}
           fields="name,email,picture"
@@ -70,24 +92,6 @@ export const AuthSocial: React.FC = () => {
             />
           }
         />
-        {/* <Button
-          fullWidth
-          size="large"
-          color="inherit"
-          variant="outlined"
-          onClick={() => {
-            console.log(ref.current);
-            ref.current.props.onClick;
-          }}
-        >
-          <Iconify
-            icon="eva:facebook-fill"
-            color="#1877F2"
-            width={22}
-            height={22}
-          />
-        </Button> */}
-
         <Button fullWidth size="large" color="inherit" variant="outlined">
           <Iconify
             icon="eva:twitter-fill"

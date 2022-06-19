@@ -146,9 +146,6 @@ const ProductDetailContainer: React.FC = () => {
 
   return (
     <>
-      <Head>
-        <meta property="og:title" content={bookDetail.thumbnail} />
-      </Head>
       <div className="wrapper" id="wrapper">
         <div
           className="ht__bradcaump__area "

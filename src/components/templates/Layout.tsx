@@ -24,7 +24,6 @@ const Layout: React.FC<any> = ({ children }) => {
         const dataBook = unwrapResult(response as any);
         const itemsCart = transformDataToCart(dataBook.items, bookOnCartLocal);
         dispatch(setCart({ items: itemsCart, total: dataBook.total }));
-        console.log({ items: itemsCart, total: dataBook.total });
       }
     }
   }, [bookOnCartLocal, dispatch]);
