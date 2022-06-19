@@ -1,9 +1,9 @@
 import { Box, Grid, styled } from '@mui/material';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react';
 import Typography from '../../../components/elements/Typography';
 import { IBookInCombo } from '../../../libs/apis/book/types';
-import { moneyFormat } from '../../../libs/utils';
 
 export const Image = styled(Box)(({ src }: { src: string }) => ({
   width: 80,
@@ -31,8 +31,14 @@ const BookInCombo: React.FC<IBookInCombo> = ({
   author,
   id,
 }) => {
+  const router = useRouter();
   return (
-    <Box width="250px" height="100px" style={{ backgroundColor: '#eee' }}>
+    <Box
+      width="250px"
+      height="100px"
+      style={{ backgroundColor: '#eee', cursor: 'pointer' }}
+      onClick={() => router.push(`/products/${id}`)}
+    >
       <Grid container>
         <Grid item xs={4}>
           <Image src={thumbnail || ''} />
@@ -41,11 +47,11 @@ const BookInCombo: React.FC<IBookInCombo> = ({
           <Box p={1}>
             <Grid container spacing={1} direction="column">
               <Grid item>
-                <Link href={`/products/${id}`}>
-                  <Text width="100%" fontWeight={600} fontSize={16}>
-                    {name}
-                  </Text>
-                </Link>
+                {/* <Link href={`/products/${id}`}> */}
+                <Text width="100%" fontWeight={600} fontSize={16}>
+                  {name}
+                </Text>
+                {/* </Link> */}
               </Grid>
               <Grid item>
                 <Text fontSize={14}>{author}</Text>

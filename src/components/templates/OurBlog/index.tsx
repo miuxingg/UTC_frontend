@@ -17,14 +17,12 @@ export const OurBlog: React.FC<IOurBlog> = ({ blogList, title }) => {
           <div className="col-lg-12">
             <div className="section__title text-center">
               <h2 className="title__be--2">
-                <h2 className="title__be--2">
-                  {newTitle.slice(0, Math.ceil(newTitle.length / 2)).join(' ')}{' '}
-                  <span className="color--theme">
-                    {newTitle
-                      .slice(Math.ceil(newTitle.length / 2), newTitle.length)
-                      .join(' ')}
-                  </span>
-                </h2>
+                {newTitle.slice(0, Math.ceil(newTitle.length / 2)).join(' ')}{' '}
+                <span className="color--theme">
+                  {newTitle
+                    .slice(Math.ceil(newTitle.length / 2), newTitle.length)
+                    .join(' ')}
+                </span>
               </h2>
             </div>
           </div>

@@ -34,6 +34,7 @@ const ProductDetail: NextPage = () => {
       );
     }
   }, [dispatch, id]);
+
   return (
     <>
       <Head>
