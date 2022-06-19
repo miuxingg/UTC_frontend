@@ -95,11 +95,8 @@ const Footer: React.FC = () => {
               <div className="copyright">
                 <div className="copy__right__inner text-left">
                   <p>
-                    Copyright <i className="fa fa-copyright" />{' '}
-                    <a href="https://freethemescloud.com/">
-                      Free themes Cloud.
-                    </a>{' '}
-                    All Rights Reserved
+                    Copyright <i className="fa fa-copyright" /> . Design by
+                    Nguyen Thanh Binh
                   </p>
                 </div>
               </div>

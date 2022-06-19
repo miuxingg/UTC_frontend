@@ -2,21 +2,6 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import AutoPlay from '../../components/elements/SliderBanner';
 import { BookStoreInfomation } from '../../configs';
-import GoogleMap from './GoogleMap';
-
-const key = 'AIzaSyD9rLRWMcSrWloMWSVYRW9uiooequJQWSk';
-
-// const Mailto = ({ email, subject, body, children }) => {
-//   return (
-//     <a
-//       href={`mailto:${email}?subject=${
-//         encodeURIComponent(subject) || ''
-//       }&body=${encodeURIComponent(body) || ''}`}
-//     >
-//       {children}
-//     </a>
-//   );
-// };
 
 const ContactContainer: React.FC = () => {
   const { t } = useTranslation();
@@ -29,23 +14,7 @@ const ContactContainer: React.FC = () => {
         <div className="google__map pb--80">
           <div className="container">
             <div className="row">
-              <div className="col-md-12">
-                {/* <div id="googleMap" /> */}
-                {/* <GoogleMap
-                  googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${key}&callback=initMap`}
-                  loadingElement={<div style={{ height: `100%` }} />}
-                  containerElement={
-                    <div
-                      style={{
-                        height: `90vh`,
-                        margin: `auto`,
-                        border: '2px solid black',
-                      }}
-                    />
-                  }
-                  mapElement={<div style={{ height: `100%` }} />}
-                /> */}
-              </div>
+              <div className="col-md-12"></div>
             </div>
           </div>
         </div>
@@ -54,26 +23,6 @@ const ContactContainer: React.FC = () => {
             <div className="col-lg-8 col-12">
               <div className="contact-form-wrap">
                 <h2 className="contact__title">{t('contact.get-in-touch')}</h2>
-
-                {/* <div className="single-contact-form space-between">
-                  <input
-                    type="text"
-                    name="firstname"
-                    placeholder={t('check-out.shipping.first-name')}
-                  />
-                  <input
-                    type="text"
-                    name="lastname"
-                    placeholder={t('check-out.shipping.last-name')}
-                  />
-                </div>
-                <div className="single-contact-form space-between">
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder={t('check-out.shipping.emails')}
-                  />
-                </div> */}
                 <div className="single-contact-form">
                   <input
                     type="text"
@@ -109,7 +58,7 @@ const ContactContainer: React.FC = () => {
                       transition: 'all 0.4s ease 0s',
                     }}
                   >
-                    Feedback
+                    {t('login.forgot-password-button')}
                   </a>
                 </div>
               </div>
@@ -119,14 +68,6 @@ const ContactContainer: React.FC = () => {
             </div>
             <div className="col-lg-4 col-12 md-mt-40 sm-mt-40">
               <div className="wn__address">
-                {/* <h2 className="contact__title">Get office info.</h2>
-                <p>
-                  Claritas est etiam processus dynamicus, qui sequitur
-                  mutationem consuetudium lectorum. Mirum est notare quam
-                  littera gothica, quam nunc putamus parum claram, anteposuerit
-                  litterarum formas humanitatis per seacula quarta decima et
-                  quinta decima.{' '}
-                </p> */}
                 <div className="wn__addres__wreapper">
                   <div className="single__address">
                     <i className="icon-location-pin icons" />
@@ -149,13 +90,6 @@ const ContactContainer: React.FC = () => {
                       <p>{BookStoreInfomation.email}</p>
                     </div>
                   </div>
-                  {/* <div className="single__address">
-                    <i className="icon-globe icons" />
-                    <div className="content">
-                      <span>website address:</span>
-                      <p>716-298-1822</p>
-                    </div>
-                  </div> */}
                 </div>
               </div>
             </div>

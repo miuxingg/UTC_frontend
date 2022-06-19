@@ -51,7 +51,9 @@ const HomePageContainer: React.FC = () => {
         title={t('home.title.combo')}
         description={t('home.description.combo')}
       />
-      {blogList.length ? <OurBlog blogList={blogList} /> : null}
+      {blogList.length ? (
+        <OurBlog blogList={blogList} title={t('blog.title')} />
+      ) : null}
       <BooksSection
         listItem={transformBookCart(booksBestSaler.items)}
         title={t('home.title.best-saler')}
