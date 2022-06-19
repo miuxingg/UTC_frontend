@@ -11,6 +11,7 @@ import reviewReducer from './review';
 import publisherReducer from './publisher';
 import blogReducer from './blog';
 import voucherReducer from './voucher';
+import configReducer from './config';
 
 const rootReducer = combineReducers({
   app: appReducer,
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   publisher: publisherReducer,
   blog: blogReducer,
   voucher: voucherReducer,
+  config: configReducer,
 });
 
 export default rootReducer;

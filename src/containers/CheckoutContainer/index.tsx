@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import SelectBox from '../../components/elements/SelectBox';
 import { moneyFormat } from '../../libs/utils';
@@ -35,12 +35,13 @@ import {
 } from '../../libs/utils/localStorage';
 import { checkQuantityBook } from '../../redux/book';
 import { ICheckQuantityBook } from '../../libs/apis/book/types';
-import { shipAmount } from '../../configs/types';
+// import { shipAmount } from '../../configs/types';
 import { useTranslation } from 'react-i18next';
 import PopupVocher from '../../components/collecttions/PopupVocher';
 import { allVoucherSelector } from '../../redux/voucher/selectors';
 import { IVoucherApi } from '../../libs/apis/voucher/types';
 import AutoPlay from '../../components/elements/SliderBanner';
+import { configSelector } from '../../redux/config/selectors';
 
 const ButtonSubmit = styled(Button)({
   width: '100%',
@@ -94,6 +95,8 @@ const CheckoutContainer: React.FC = () => {
   const { t } = useTranslation();
   const [isStripePayment, setIsStripePayment] = useState<boolean>(false);
   const dispatch = useDispatch();
+  const config = useSelector(configSelector);
+  const shipAmount = config?.shippingMoney || 0;
   const [address, setAddress] = useState({
     provice: 1,
     district: 1,

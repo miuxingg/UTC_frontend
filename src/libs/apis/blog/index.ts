@@ -8,7 +8,7 @@ import { IBlogApi } from './types';
 export class BlogApi {
   constructor(private axiosInstance: AxiosInstance) {}
 
-  async getAllBlog(queries: BaseQuery): Promise<IConfig> {
+  async getAllBlog(queries?: BaseQuery): Promise<IConfig> {
     const { data } = await this.axiosInstance.get('/configs');
     return data;
   }

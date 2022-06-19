@@ -28,6 +28,7 @@ interface ISelectBox {
   onChange: (key: any) => void;
   error?: string;
   value?: any;
+  defaultValue?: any;
 }
 const SelectBox: React.FC<ISelectBox> = ({
   name,
@@ -36,6 +37,7 @@ const SelectBox: React.FC<ISelectBox> = ({
   onChange,
   error,
   value,
+  defaultValue,
 }) => {
   const handleChange = (event: SelectChangeEvent<any>) => {
     const {
@@ -55,6 +57,7 @@ const SelectBox: React.FC<ISelectBox> = ({
           id="demo-multiple-name"
           onChange={handleChange}
           value={value}
+          defaultValue={defaultValue}
           input={
             <OutlinedInput
               label={label}

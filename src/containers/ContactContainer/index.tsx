@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import AutoPlay from '../../components/elements/SliderBanner';
-import { BookStoreInfomation } from '../../configs';
+// import { BookStoreInfomation } from '../../configs';
+import { configSelector } from '../../redux/config/selectors';
 
 const ContactContainer: React.FC = () => {
   const { t } = useTranslation();
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const config = useSelector(configSelector);
+
   return (
     <div>
       <AutoPlay src={['images/bg/banner-checkout.png']} />
@@ -42,7 +46,7 @@ const ContactContainer: React.FC = () => {
                 </div>
                 <div className="contact-btn">
                   <a
-                    href={`mailto:${BookStoreInfomation.email}?subject=${title}&body=${content}`}
+                    href={`mailto:${config?.shopInfomation?.email}?subject=${title}&body=${content}`}
                     style={{
                       background: 'rgba(0, 0, 0, 0) none repeat scroll 0 0',
                       border: '2px solid #333',
@@ -73,21 +77,21 @@ const ContactContainer: React.FC = () => {
                     <i className="icon-location-pin icons" />
                     <div className="content">
                       <span>{t('checkout-history.table.address')}:</span>
-                      <p>{BookStoreInfomation.address}</p>
+                      <p>{config?.shopInfomation?.address}</p>
                     </div>
                   </div>
                   <div className="single__address">
                     <i className="icon-phone icons" />
                     <div className="content">
                       <span>{t('check-out.shipping.phone')}:</span>
-                      <p>{BookStoreInfomation.phone}</p>
+                      <p>{config?.shopInfomation?.numberPhone}</p>
                     </div>
                   </div>
                   <div className="single__address">
                     <i className="icon-envelope icons" />
                     <div className="content">
                       <span>{t('check-out.shipping.emails')}:</span>
-                      <p>{BookStoreInfomation.email}</p>
+                      <p>{config?.shopInfomation?.email}</p>
                     </div>
                   </div>
                 </div>
