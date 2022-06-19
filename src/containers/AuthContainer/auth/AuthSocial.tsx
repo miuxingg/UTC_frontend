@@ -1,8 +1,7 @@
 // material
 import { Stack, Button, Divider, Typography } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { loginFacebook, loginGoogle } from '../../../redux/auth/action';
-import GoogleLoginForm from '../../SocialLoginContainer/Google';
+import { loginFacebook } from '../../../redux/auth/action';
 // component
 import Iconify from './Iconify';
 import FacebookLogin from 'react-facebook-login';
@@ -13,7 +12,6 @@ import { setError } from '../../../redux/app';
 
 const clientId =
   '532459309976-u4anma0797gt5vfgahcran9fib07vdi2.apps.googleusercontent.com';
-// ----------------------------------------------------------------------
 export const AuthSocial: React.FC = () => {
   const dispatch = useDispatch();
   const responseFacebook = (response: any) => {
@@ -50,7 +48,6 @@ export const AuthSocial: React.FC = () => {
 
   const onFailure = (response: any) => {
     console.log(response);
-
     dispatch(setError({ message: 'Login failure' }));
   };
 
