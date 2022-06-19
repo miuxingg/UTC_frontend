@@ -14,7 +14,7 @@ let DEFAULT_SOCKET_URL = '';
 const DEFAULT_NAMESPACE = '';
 
 if (process && process.env.NODE_ENV === 'production') {
-  DEFAULT_SOCKET_URL = '';
+  DEFAULT_SOCKET_URL = 'http://localhost:8081';
 } else {
   DEFAULT_SOCKET_URL = 'http://localhost:8081';
 }

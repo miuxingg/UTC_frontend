@@ -12,15 +12,18 @@ import {
   getWardsThunk,
 } from '../../redux/address';
 import { setProfile } from '../../redux/auth';
+import { profileSelector } from '../../redux/auth/selectors';
 
 const Profile: React.FC = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const profile = useSelector(profileSelector);
+
   useEffect(() => {
     dispatch(getProvices());
-    dispatch(getDistrictsThunk(1));
-    dispatch(getWardsThunk(1));
-  }, [dispatch]);
+    dispatch(getDistrictsThunk(profile?.province?.code || 1));
+    dispatch(getWardsThunk(profile?.district?.code || 1));
+  }, [dispatch, profile]);
   return (
     <>
       <Head>

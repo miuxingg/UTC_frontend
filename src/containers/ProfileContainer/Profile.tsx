@@ -303,6 +303,7 @@ const Profile: React.FC<IProfileContainer> = ({
                           name="province"
                           error={errors.province?.name || errors.province?.code}
                           value={values.province.code}
+                          defaultValue={initialValues?.province?.code}
                         />
                       </div>
 
