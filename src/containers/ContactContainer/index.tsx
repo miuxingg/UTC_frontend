@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import AutoPlay from '../../components/elements/SliderBanner';
-// import { BookStoreInfomation } from '../../configs';
 import { configSelector } from '../../redux/config/selectors';
 
 const ContactContainer: React.FC = () => {
