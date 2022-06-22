@@ -90,7 +90,7 @@ export const RegisterForm: React.FC = () => {
                 <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
                   <TextField
                     fullWidth
-                    label="First name"
+                    label={t('register.first-name')}
                     name="firstName"
                     value={values.firstName}
                     onChange={handleChange}
@@ -107,7 +107,7 @@ export const RegisterForm: React.FC = () => {
 
                   <TextField
                     fullWidth
-                    label="Last name"
+                    label={t('register.last-name')}
                     name="lastName"
                     value={values.lastName}
                     onChange={handleChange}
@@ -128,7 +128,7 @@ export const RegisterForm: React.FC = () => {
                   name="email"
                   value={values.email}
                   onChange={handleChange}
-                  label="Email address"
+                  label={t('login.email')}
                   helperText={
                     <span style={{ color: 'red' }}>
                       {errors.email
@@ -144,7 +144,7 @@ export const RegisterForm: React.FC = () => {
                   value={values.password}
                   onChange={handleChange}
                   type={showPassword ? 'text' : 'password'}
-                  label="Password"
+                  label={t('login.password')}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
@@ -176,7 +176,7 @@ export const RegisterForm: React.FC = () => {
                   value={values.confirmPassword}
                   onChange={handleChange}
                   type={showPassword ? 'text' : 'password'}
-                  label="Password"
+                  label={t('register.comfirm')}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
