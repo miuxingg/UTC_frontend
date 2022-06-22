@@ -28,7 +28,7 @@ import PaymentGatewayCart from './PaymentGatewayCart';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { apiSdk } from '../../libs/apis';
 import PaymentForm from '../Payment/PaymentForm';
-import { profileSelector } from '../../redux/auth/selectors';
+import { authSelector, profileSelector } from '../../redux/auth/selectors';
 import {
   removeItemDataStorage,
   LocalStorageKey,
@@ -42,6 +42,8 @@ import { allVoucherSelector } from '../../redux/voucher/selectors';
 import { IVoucherApi } from '../../libs/apis/voucher/types';
 import AutoPlay from '../../components/elements/SliderBanner';
 import { configSelector } from '../../redux/config/selectors';
+import { useRouter } from 'next/router';
+import { Routers } from '../../configs/navigator';
 
 const ButtonSubmit = styled(Button)({
   width: '100%',
@@ -92,10 +94,12 @@ export const findNamebyCode = (address: any[], code: number) => {
 };
 
 const CheckoutContainer: React.FC = () => {
+  const router = useRouter();
   const { t } = useTranslation();
   const [isStripePayment, setIsStripePayment] = useState<boolean>(false);
   const dispatch = useDispatch();
   const config = useSelector(configSelector);
+  const isAuthenticated = useSelector(authSelector);
   const shipAmount = config?.shippingMoney || 0;
   const [address, setAddress] = useState({
     provice: 1,
@@ -284,6 +288,12 @@ const CheckoutContainer: React.FC = () => {
             if (stripePayment) {
               dispatch(deleteCart({ message: 'remove cart' }));
               removeItemDataStorage(LocalStorageKey.BookStoreCart);
+              dispatch(setSuccess({ message: t('notify.checkout.success') }));
+              if (isAuthenticated) {
+                router.push(Routers.myOrder.path);
+              } else {
+                router.push(Routers.products.path);
+              }
             } else {
               dispatch(setError({ message: t('notify.checkout.error') }));
             }
@@ -297,7 +307,11 @@ const CheckoutContainer: React.FC = () => {
             dispatch(deleteCart({ message: 'remove cart' }));
             removeItemDataStorage(LocalStorageKey.BookStoreCart);
             dispatch(setSuccess({ message: t('notify.checkout.success') }));
-            // router.push(Routers.home.path);
+            if (isAuthenticated) {
+              router.push(Routers.myOrder.path);
+            } else {
+              router.push(Routers.products.path);
+            }
           } else {
             dispatch(setError({ message: t('notify.checkout.error') }));
           }
@@ -535,7 +549,12 @@ const CheckoutContainer: React.FC = () => {
                               {moneyFormat(
                                 totalMoney +
                                   shipAmount -
-                                  (voucherSelected?.priceDiscound || 0),
+                                  (voucherSelected?.priceDiscound || 0) >
+                                  0
+                                  ? totalMoney +
+                                      shipAmount -
+                                      (voucherSelected?.priceDiscound || 0)
+                                  : 0,
                               )}
                             </span>
                           </li>

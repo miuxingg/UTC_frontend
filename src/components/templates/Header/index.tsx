@@ -170,14 +170,14 @@ const Header: React.FC<IHeader> = ({ bookCartLocal }) => {
               <ul className="header__sidebar__right d-flex justify-content-end align-items-center">
                 <li
                   className="shop_search"
-                  style={{ cursor: 'pointer' }}
+                  style={{ cursor: 'pointer', marginRight: '26px' }}
                   onClick={() => setIsSearch((pre) => !pre)}
                 >
                   <a className="search__active" />
                 </li>
-                <li className="wishlist" style={{ cursor: 'pointer' }}>
+                {/* <li className="wishlist" style={{ cursor: 'pointer' }}>
                   <a />
-                </li>
+                </li> */}
                 <li
                   className="shopcart"
                   style={{ cursor: 'pointer' }}

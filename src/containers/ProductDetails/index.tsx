@@ -24,7 +24,6 @@ import { toggleFavorite } from '../../redux/favorite';
 import ShareFacebook from '../../components/collecttions/Sharing/Facebook';
 import ShareTwitter from '../../components/collecttions/Sharing/Twitter';
 import { Routers } from '../../configs/navigator';
-import Head from 'next/head';
 
 const SeeMore = styled('span')({
   color: 'blue',
@@ -237,7 +236,7 @@ const ProductDetailContainer: React.FC = () => {
                               onMouseEnter={() => setFavoriteHover(true)}
                               onMouseLeave={() => setFavoriteHover(false)}
                             />
-                            <a className="compare" href="#" />
+                            {/* <a className="compare" href="#" /> */}
                           </div>
                         </div>
                         <div className="product_meta">

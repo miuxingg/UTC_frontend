@@ -45,7 +45,7 @@ const ProductsContainer: React.FC = () => {
 
   useEffect(() => {
     dispatch(allBooksByFilter(queries));
-  }, [queries]);
+  }, [dispatch, queries]);
 
   const handleCategoryClick = (id?: string) => {
     if (id) {
@@ -129,7 +129,11 @@ const ProductsContainer: React.FC = () => {
                   <ul>
                     <li style={{ cursor: 'pointer' }}>
                       <Box onClick={() => handleCategoryClick()}>
-                        <a>
+                        <a
+                          style={{
+                            color: queries.category === '' ? '#e59285' : '#000',
+                          }}
+                        >
                           {t('product.filter.all')} <span></span>
                         </a>
                       </Box>
@@ -138,7 +142,14 @@ const ProductsContainer: React.FC = () => {
                       return (
                         <li key={item.id} style={{ cursor: 'pointer' }}>
                           <Box onClick={() => handleCategoryClick(item.id)}>
-                            <a>
+                            <a
+                              style={{
+                                color:
+                                  queries.category === item.id
+                                    ? '#e59285'
+                                    : '#000',
+                              }}
+                            >
                               {item.name} <span></span>
                             </a>
                           </Box>
@@ -154,7 +165,11 @@ const ProductsContainer: React.FC = () => {
                   <ul>
                     <li style={{ cursor: 'pointer' }}>
                       <Box onClick={() => handlePublisherClick()}>
-                        <a>
+                        <a
+                          style={{
+                            color: queries.category === '' ? '#e59285' : '#000',
+                          }}
+                        >
                           {t('product.filter.all')}
                           <span></span>
                         </a>
@@ -164,7 +179,14 @@ const ProductsContainer: React.FC = () => {
                       return (
                         <li key={item.id} style={{ cursor: 'pointer' }}>
                           <Box onClick={() => handlePublisherClick(item.id)}>
-                            <a>
+                            <a
+                              style={{
+                                color:
+                                  queries.category === item.id
+                                    ? '#e59285'
+                                    : '#000',
+                              }}
+                            >
                               {item.name} <span></span>
                             </a>
                           </Box>
